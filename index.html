@@ -5,8 +5,6 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-
-    <!-- Favicon -->
     <link
       rel="apple-touch-icon"
       href="/icons/apple-touch-icon-180x180.png" />
@@ -25,28 +23,15 @@
     <meta
       name="msapplication-TileColor"
       content="#ffffff" />
-
-    <!-- Language -->
-    <meta
-      http-equiv="Content-Language"
-      content="en" />
-
-    <!-- Description -->
     <meta
       name="description"
       content="This is the portfolio of Levin Bänninger, a junior software engineer" />
-
-    <!-- Author -->
     <meta
       name="author"
       content="Levin Bänninger" />
-
-    <!-- Keywords -->
     <meta
       name="keywords"
       content="Portfolio, Levin Bänninger, Software Engineer, Software Developer" />
-
-    <!-- Open Graph -->
     <meta
       property="og:title"
       content="Portfolio - Levin Bänninger" />
@@ -55,7 +40,7 @@
       content="This is the portfolio of Levin Bänninger, a junior software engineer" />
     <meta
       property="og:image"
-      content="https://levinbaenninger.dev/images/social/og_image.png" />
+      content="https://levinbaenninger.dev/images/social/og_thumbnail.png" />
     <meta
       property="og:url"
       content="https://levinbaenninger.dev" />
@@ -65,8 +50,6 @@
     <meta
       property="og:locale"
       content="en" />
-
-    <!-- Twitter Card -->
     <meta
       name="twitter:card"
       content="summary_large_image" />
@@ -79,11 +62,44 @@
     <meta
       name="twitter:image"
       content="https://levinbaenninger.dev/images/social/og_image.png" />
-
-    <!-- Title -->
     <title>Portfolio - Levin Bänninger</title>
   </head>
   <body>
+    <header class="header">
+      <p class="header-logo">Levin Bänninger</p>
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-item">About</li>
+          <li class="navigation-item">Experience</li>
+          <li class="navigation-item">Projects</li>
+          <li class="navigation-item">Contact</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="avatar-container">
+          <img
+            src="/images/avatar.png"
+            alt="Portrait of Levin Bänninger" />
+        </div>
+        <div class="info-container">
+          <p class="body-bold">Hello I'm</p>
+          <h1 class="heading">Levin Bänninger</h1>
+          <h2 class="subheading">Junior Software Engineer</h2>
+          <div class="button-container">
+            <button class="button button-secondary">See CV</button>
+            <button class="button button-primary">Contact Me</button>
+          </div>
+          <div class="icon-container">
+            <i class="bi bi-linkedin"></i>
+            <i class="bi bi-github"></i>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script
       type="module"
       src="/src/main.ts"></script>
