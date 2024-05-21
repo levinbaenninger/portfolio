@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15dvh;
+
+  p {
+    font-size: $fs-logo;
+    color: $clr-black;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+
+      li {
+        font-size: $fs-link;
+        color: $clr-black;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}

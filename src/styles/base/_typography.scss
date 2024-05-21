@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+h1 {
+  font-size: $fs-heading;
+  font-weight: $fw-semi-bold;
+}
+
+h2 {
+  font-size: $fs-subheading;
+  color: $clr-gray-400;
+}
+
+h3 {
+  font-size: $fs-heading;
+  color: $clr-black;
+}
+
+a {
+  font-size: $fs-link;
+  color: $clr-black;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+  }
+}
+
+.caption {
+  color: $clr-gray-400;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}

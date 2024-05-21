@@ -1,0 +1,13 @@
+@use '../abstracts/' as *;
+
+* {
+  box-sizing: border-box  ;
+}
+
+body {
+  font-family: $ff-sans-serif;
+  font-weight: $fw-regular;
+  font-size: $fs-body;
+  color: $clr-gray-500;
+  padding: 0 10rem;
+}

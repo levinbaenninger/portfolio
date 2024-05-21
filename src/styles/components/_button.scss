@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+button {
+  font-family: $ff-sans-serif;
+  font-size: $fs-button;
+  padding: 1rem 1.5rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-primary {
+  background-color: $clr-gray-500;
+  color: $clr-white;
+  border: none;
+
+  &:hover {
+    background-color: $clr-black;
+  }
+}
+
+.button-secondary {
+  background-color: $clr-white;
+  color: $clr-gray-500;
+  border: 1px solid $clr-gray-500;
+
+  &:hover {
+    color: $clr-white;
+    background-color: $clr-gray-500;
+  }
+}
