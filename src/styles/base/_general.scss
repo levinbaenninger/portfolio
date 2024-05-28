@@ -1,7 +1,11 @@
 @use '../abstracts/' as *;
 
 * {
-  box-sizing: border-box  ;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -10,4 +14,33 @@ body {
   font-size: $fs-body;
   color: $clr-gray-500;
   padding: 0 10rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding-top: 2.5rem;
+}
+
+@media screen and (max-width: $bp-tablet) {
+  body {
+    padding: 0 5rem;
+  }
+
+  section {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: $bp-mobile) {
+  body {
+    padding: 0 2rem;
+  }
 }

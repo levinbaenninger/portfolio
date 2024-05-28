@@ -1,11 +1,25 @@
 @use '../abstracts' as *;
 
-button {
+.button-container {
+  gap: 1rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.button {
   font-family: $ff-sans-serif;
   font-size: $fs-button;
   padding: 1rem 1.5rem;
   border-radius: 2rem;
   transition: all 0.3s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .button-primary {

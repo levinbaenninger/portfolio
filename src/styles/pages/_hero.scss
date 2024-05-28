@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+#hero {
+  flex-direction: row;
+  gap: 5rem;
+  height: 85dvh;
+
+  p {
+    font-weight: $fw-semi-bold;
+    color: $clr-gray-400;
+  }
+}
+
+@media screen and (max-width: $bp-tablet) {
+  #hero {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: $bp-mobile) {
+  
+}

@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.scroll-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  background-color: $clr-gray-100;
+  border-radius: 0.5rem;
+  position: fixed;
+  right: 2rem;
+  bottom: -10rem;
+  z-index: 10;
+  transition: all 0.4s;
+  visibility: hidden;
+}
+
+.show-scroll {
+  visibility: visible;
+  bottom: 2rem;
+}
+
+@media screen and (max-width: $bp-mobile) {
+  .scroll-top {
+    right: 1rem;
+  }
+
+  .show-scroll {
+    bottom: 1rem;
+  }
+}

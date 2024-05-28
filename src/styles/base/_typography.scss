@@ -15,6 +15,16 @@ h3 {
   color: $clr-black;
 }
 
+h4 {
+  font-size: $fs-card-heading;
+  color: $clr-black;
+}
+
+h5 {
+  font-size: $fs-skill-heading;
+  color: $clr-black;
+}
+
 a {
   font-size: $fs-link;
   color: $clr-black;
@@ -32,4 +42,22 @@ a {
   color: $clr-gray-400;
   text-align: center;
   margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: $bp-mobile) {
+  h1 {
+    font-size: $fs-mobile-heading;
+  }
+
+  h2 {
+    font-size: $fs-mobile-subheading;
+  }
+
+  h3 {
+    font-size: $fs-mobile-heading;
+  }
+
+  h4 {
+    font-size: $fs-mobile-card-heading;
+  }
 }
