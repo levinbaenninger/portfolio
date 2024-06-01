@@ -1,90 +1,426 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
-
-    <!-- Favicon -->
-    <link
-      rel="apple-touch-icon"
-      href="/icons/apple-touch-icon-180x180.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180x180.png" />
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="/icons/favicon-32x32.ico" />
+      href="/icons/favicon-32x32.ico"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="96x96"
-      href="/icons/favicon-96x96.png" />
+      href="/icons/favicon-96x96.png"
+    />
     <meta
       name="msapplication-square310x310logo"
-      content="/icons/mstile-310x310.png" />
-    <meta
-      name="msapplication-TileColor"
-      content="#ffffff" />
-
-    <!-- Language -->
-    <meta
-      http-equiv="Content-Language"
-      content="en" />
-
-    <!-- Description -->
+      content="/icons/mstile-310x310.png"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="description"
-      content="This is the portfolio of Levin Bänninger, a junior software engineer" />
-
-    <!-- Author -->
-    <meta
-      name="author"
-      content="Levin Bänninger" />
-
-    <!-- Keywords -->
+      content="This is the portfolio of Levin Bänninger, a junior software engineer"
+    />
+    <meta name="author" content="Levin Bänninger" />
     <meta
       name="keywords"
-      content="Portfolio, Levin Bänninger, Software Engineer, Software Developer" />
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Portfolio - Levin Bänninger" />
+      content="Portfolio, Levin Bänninger, Software Engineer, Software Developer"
+    />
+    <meta property="og:title" content="Portfolio - Levin Bänninger" />
     <meta
       property="og:description"
-      content="This is the portfolio of Levin Bänninger, a junior software engineer" />
+      content="This is the portfolio of Levin Bänninger, a junior software engineer"
+    />
     <meta
       property="og:image"
-      content="https://levinbaenninger.dev/images/social/og_image.png" />
-    <meta
-      property="og:url"
-      content="https://levinbaenninger.dev" />
-    <meta
-      property="og:type"
-      content="website" />
-    <meta
-      property="og:locale"
-      content="en" />
-
-    <!-- Twitter Card -->
-    <meta
-      name="twitter:card"
-      content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Portfolio - Levin Bänninger" />
+      content="https://levinbaenninger.dev/images/social/og_thumbnail.png"
+    />
+    <meta property="og:url" content="https://levinbaenninger.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portfolio - Levin Bänninger" />
     <meta
       name="twitter:description"
-      content="This is the portfolio of Levin Bänninger, a junior software engineer" />
+      content="This is the portfolio of Levin Bänninger, a junior software engineer"
+    />
     <meta
       name="twitter:image"
-      content="https://levinbaenninger.dev/images/social/og_image.png" />
-
-    <!-- Title -->
+      content="https://levinbaenninger.dev/images/social/og_image.png"
+    />
     <title>Portfolio - Levin Bänninger</title>
-    <script type="module" crossorigin src="/assets/index-BJt8meqQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Cwumv1rj.css">
+    <script type="module" crossorigin src="/assets/index-Ct4a88ZL.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-8uxJa4w6.css">
   </head>
   <body>
+    <header class="desktop-nav">
+      <p>Levin Bänninger</p>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <header class="mobile-nav">
+      <p>Levin Bänninger</p>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" id="icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav id="menu">
+          <ul>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="image-container">
+          <img
+            srcset="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png 400w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/avatar.png 300w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/avatar.png 250w"
+            src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png"
+            sizes="(min-width: 1201px) 400px,
+                   (min-width: 673px) 300px,
+                   250px"
+            alt="Portrait of Levin Bänninger"
+          />
+        </div>
+        <div class="info-container">
+          <p>Hello I'm</p>
+          <h1>Levin Bänninger</h1>
+          <h2>Junior Software Engineer</h2>
+          <div class="button-container">
+            <a
+              href="https://cv.levinbaenninger.dev"
+              target="_blank"
+              class="button button-secondary"
+              >See CV</a
+            >
+            <a href="#contact" class="button button-primary">Contact Me</a>
+          </div>
+          <div class="icon-container">
+            <a
+              href="https://www.linkedin.com/in/levinbaenninger/"
+              target="_blank"
+            >
+              <i class="bi bi-linkedin"></i
+            ></a>
+            <a href="https://github.com/levinbaenninger" target="_blank">
+              <i class="bi bi-github"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <p class="caption">Get To Know More</p>
+        <h3>About Me</h3>
+        <div class="section-container">
+          <div class="image-container">
+            <img
+              srcset="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png 400w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/logo.png 300w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/logo.png 250w"
+              src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png"
+              sizes="(min-width: 1201px) 400px,
+                   (min-width: 673px) 300px,
+                   250px"
+              alt="Logo of Levin Bänninger"
+            />
+          </div>
+          <div class="details-container">
+            <div class="card-container">
+              <article class="card">
+                <i class="bi bi-briefcase"></i>
+                <h4>Experience</h4>
+                <p>
+                  2 years Frontend Development<br />1 year Backend Development
+                </p>
+              </article>
+              <article class="card">
+                <i class="bi bi-mortarboard"></i>
+                <h4>Education</h4>
+                <p>
+                  Swiss Matriculation<br />Certificate as Computer Scientist
+                </p>
+              </article>
+            </div>
+            <p>
+              Hello 👋 I'm a passionate and dedicated software engineer in
+              training at Bühler 🧑‍💻
+              <br /><br />
+              I am on an exhilarating journey to become a proficient software
+              engineer, and my love for problem-solving and creating innovative
+              solutions drives me forward. With a strong foundation in
+              programming fundamentals and a hunger to learn and grow, I am
+              excited to explore the endless possibilities that the world of
+              software development offers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <p class="caption">Explore My</p>
+        <h3>Skills</h3>
+        <div class="section-container">
+          <div class="card-container">
+            <div class="card">
+              <h4>Frontend Development</h4>
+              <div class="skill-container">
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>HTML</h5>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>CSS</h5>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>JavaScript</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>SCSS</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>TypeScript</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>Angular</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Backend Development</h4>
+              <div class="skill-container">
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>C#</h5>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>ASP.NET Core</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>SQL</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article class="skill">
+                  <i class="bi bi-patch-check"></i>
+                  <div class="skill-info">
+                    <h5>EF Core</h5>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <p class="caption">Browse My Recent</p>
+        <h3>Projects</h3>
+        <div class="section-container">
+          <div class="card-container">
+            <div class="card">
+              <div class="image-container">
+                <img
+                  src="/images/projects/memory-project.svg"
+                  alt="Icon for memory project"
+                />
+              </div>
+              <h4>Memory Game</h4>
+              <div class="button-container">
+                <a
+                  href="https://github.com/levinbaenninger/memory"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a
+                  href="https://memory.projects.levinbaenninger.dev"
+                  target="_blank"
+                  class="button button-primary"
+                >
+                  Live Demo</a
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="image-container">
+                <img
+                  src="/images/projects/login-project.svg"
+                  alt="Icon for login project"
+                />
+              </div>
+              <h4>Code Pulse</h4>
+              <div class="button-container">
+                <a
+                  href="https://github.com/levinbaenninger/code-pulse"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a href="" target="_blank" class="button button-primary">
+                  Live Demo</a
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="image-container">
+                <img
+                  src="/images/projects/recipe-project.svg"
+                  alt="Icon for recipe project"
+                />
+              </div>
+              <h4>Recipe Book</h4>
+              <div class="button-container">
+                <a
+                  href="https://github.com/levinbaenninger/recipe-book"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a href="" target="_blank" class="button button-primary">
+                  Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <p class="caption">Get In Touch</p>
+        <h3>Contact Me</h3>
+        <div class="section-container">
+          <div class="info-container">
+            <p class="cta">Let's chat.</p>
+            <h4>Tell me about your project.</h4>
+            <p>Let's create something together 🤝</p>
+            <div class="card-container">
+              <div class="card">
+                <div class="icon-container">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="info-container">
+                  <p>Mail me at</p>
+                  <a href="mailto:l.baenninger@icloud.com" class="mail"
+                    >l.baenninger@icloud.com</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <form
+            action="https://api.web3forms.com/submit"
+            method="post"
+            class="form-container"
+          >
+            <p>Send me a message 🚀</p>
+
+            <input
+              type="hidden"
+              name="access_key"
+              value="98fce292-555f-413b-a4d4-be5e4e914a5d"
+            />
+
+            <input
+              type="text"
+              name="from_name"
+              placeholder="Full name"
+              required
+            />
+            <input
+              type="email"
+              name="E-Mail"
+              placeholder="E-Mail address"
+              required
+            />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea
+              name="Message"
+              placeholder="Your message"
+              required
+            ></textarea>
+
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://web3forms.com/success"
+            />
+
+            <button type="submit" class="button button-primary">
+              Send message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        <p>&copy; 2024 Levin Bänninger</p>
+      </div>
+    </footer>
+
+    <a id="scroll-top" class="scroll-top" href="#">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
   </body>
 </html>
