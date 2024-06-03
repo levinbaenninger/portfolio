@@ -44,6 +44,12 @@ a {
   margin-bottom: 0.5rem;
 }
 
+@media screen and (max-width: $bp-tablet) {
+  h3 {
+    margin-bottom: 2rem;
+  }
+}
+
 @media screen and (max-width: $bp-mobile) {
   h1 {
     font-size: $fs-mobile-heading;

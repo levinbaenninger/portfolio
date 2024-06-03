@@ -14,9 +14,6 @@
 @media screen and (max-width: $bp-tablet) {
   #hero {
     flex-direction: column;
+    height: fit-content;
   }
-}
-
-@media screen and (max-width: $bp-mobile) {
-  
 }

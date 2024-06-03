@@ -12,7 +12,6 @@ let scrollTop = () => {
 
 window.addEventListener('scroll', scrollTop);
 
-
 let toggleMenu = () => {
   const menu = document.getElementById('menu')!;
   const icon = document.getElementById('icon')!;

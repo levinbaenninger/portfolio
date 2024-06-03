@@ -92,7 +92,18 @@
     <main>
       <section id="hero">
         <div class="image-container">
-          <img src="/images/avatar.png" alt="Portrait of Levin Bänninger" />
+          <img
+            srcset="
+              https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png 400w,
+              https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/avatar.png 300w,
+              https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/avatar.png 250w
+            "
+            src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png"
+            sizes="(min-width: 1201px) 400px,
+                   (min-width: 673px) 300px,
+                   250px"
+            alt="Portrait of Levin Bänninger"
+          />
         </div>
         <div class="info-container">
           <p>Hello I'm</p>
@@ -100,16 +111,25 @@
           <h2>Junior Software Engineer</h2>
           <div class="button-container">
             <a
-              class="button button-secondary"
               href="https://cv.levinbaenninger.dev"
               target="_blank"
+              class="button button-secondary"
               >See CV</a
             >
-            <a class="button button-primary" href="#contact">Contact Me</a>
+            <a href="#contact" class="button button-primary">Contact Me</a>
           </div>
           <div class="icon-container">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-github"></i>
+            <a
+              href="https://www.linkedin.com/in/levinbaenninger/"
+              target="_blank"
+            >
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+              <span class="visually-hidden">LinkedIn</span></a
+            >
+            <a href="https://github.com/levinbaenninger" target="_blank">
+              <i class="bi bi-github" aria-hidden="true"></i>
+              <span class="visually-hidden">GitHub</span></a
+            >
           </div>
         </div>
       </section>
@@ -119,7 +139,18 @@
         <h3>About Me</h3>
         <div class="section-container">
           <div class="image-container">
-            <img src="/images/logo.png" alt="Logo of Levin Bänninger" />
+            <img
+              srcset="
+                https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png 400w,
+                https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/logo.png 300w,
+                https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/logo.png 250w
+              "
+              src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png"
+              sizes="(min-width: 1201px) 400px,
+                   (min-width: 673px) 300px,
+                   250px"
+              alt="Logo of Levin Bänninger"
+            />
           </div>
           <div class="details-container">
             <div class="card-container">
@@ -256,8 +287,20 @@
               </div>
               <h4>Memory Game</h4>
               <div class="button-container">
-                <button class="button button-secondary">GitHub</button>
-                <button class="button button-primary">Live Demo</button>
+                <a
+                  href="https://github.com/levinbaenninger/memory"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a
+                  href="https://memory.projects.levinbaenninger.dev"
+                  target="_blank"
+                  class="button button-primary"
+                >
+                  Live Demo</a
+                >
               </div>
             </div>
             <div class="card">
@@ -269,8 +312,16 @@
               </div>
               <h4>Code Pulse</h4>
               <div class="button-container">
-                <button class="button button-secondary">GitHub</button>
-                <button class="button button-primary">Live Demo</button>
+                <a
+                  href="https://github.com/levinbaenninger/code-pulse"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a href="" target="_blank" class="button button-primary">
+                  Live Demo</a
+                >
               </div>
             </div>
             <div class="card">
@@ -282,8 +333,16 @@
               </div>
               <h4>Recipe Book</h4>
               <div class="button-container">
-                <button class="button button-secondary">GitHub</button>
-                <button class="button button-primary">Live Demo</button>
+                <a
+                  href="https://github.com/levinbaenninger/recipe-book"
+                  target="_blank"
+                  class="button button-secondary"
+                >
+                  GitHub</a
+                >
+                <a href="" target="_blank" class="button button-primary">
+                  Live Demo</a
+                >
               </div>
             </div>
           </div>
@@ -311,12 +370,44 @@
               </div>
             </div>
           </div>
-          <form class="form-container">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="post"
+            class="form-container"
+          >
             <p>Send me a message 🚀</p>
-            <input type="text" placeholder="Full name" />
-            <input type="email" placeholder="E-Mail address" />
-            <input type="text" placeholder="Subject" />
-            <textarea placeholder="Your message"></textarea>
+
+            <input
+              type="hidden"
+              name="access_key"
+              value="98fce292-555f-413b-a4d4-be5e4e914a5d"
+            />
+
+            <input
+              type="text"
+              name="from_name"
+              placeholder="Full name"
+              required
+            />
+            <input
+              type="email"
+              name="E-Mail"
+              placeholder="E-Mail address"
+              required
+            />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea
+              name="Message"
+              placeholder="Your message"
+              required
+            ></textarea>
+
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://web3forms.com/success"
+            />
+
             <button type="submit" class="button button-primary">
               Send message
             </button>

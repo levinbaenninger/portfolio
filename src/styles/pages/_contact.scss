@@ -25,11 +25,12 @@
 
       .card {
         flex-direction: row;
+        gap: 1rem;
         flex: none;
 
         .icon-container {
           margin: 0;
-          padding: 0.5rem;
+          padding: 0.75rem;
           justify-content: center;
           align-self: center;
           background-color: $clr-gray-100;
@@ -87,14 +88,6 @@
   #contact {
     .info-container {
       display: none;
-    }
-  }
-}
-
-@media screen and (max-width: $bp-mobile) {
-  #contact {
-    h3 {
-      margin-bottom: 2rem;
     }
   }
 }

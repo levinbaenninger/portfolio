@@ -29,6 +29,23 @@ section {
   padding-top: 2.5rem;
 }
 
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visually-hidden:focus {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  width: auto;
+}
+
 @media screen and (max-width: $bp-tablet) {
   body {
     padding: 0 5rem;
@@ -36,6 +53,7 @@ section {
 
   section {
     height: fit-content;
+    padding-top: 5rem;
   }
 }
 
