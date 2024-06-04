@@ -52,8 +52,8 @@
       content="https://levinbaenninger.dev/images/social/og_image.png"
     />
     <title>Portfolio - Levin Bänninger</title>
-    <script type="module" crossorigin src="/assets/index-BWwZ1ttz.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DiAFSaaa.css">
+    <script type="module" crossorigin src="/assets/index-DQSc8hP6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D2Sz_25C.css">
   </head>
   <body>
     <header class="desktop-nav">
@@ -182,7 +182,7 @@
         <h3>Skills</h3>
         <div class="section-container">
           <div class="card-container">
-            <div class="card">
+            <article class="card">
               <h4>Frontend Development</h4>
               <div class="skill-container">
                 <article class="skill">
@@ -228,8 +228,8 @@
                   </div>
                 </article>
               </div>
-            </div>
-            <div class="card">
+            </article>
+            <article class="card">
               <h4>Backend Development</h4>
               <div class="skill-container">
                 <article class="skill">
@@ -261,7 +261,7 @@
                   </div>
                 </article>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -271,7 +271,7 @@
         <h3>Projects</h3>
         <div class="section-container">
           <div class="card-container">
-            <div class="card">
+            <article class="card">
               <div class="image-container">
                 <img
                   loading="lazy"
@@ -296,8 +296,8 @@
                   Live Demo</a
                 >
               </div>
-            </div>
-            <div class="card">
+            </article>
+            <article class="card">
               <div class="image-container">
                 <img
                   loading="lazy"
@@ -318,8 +318,8 @@
                   Live Demo</a
                 >
               </div>
-            </div>
-            <div class="card">
+            </article>
+            <article class="card">
               <div class="image-container">
                 <img
                   loading="lazy"
@@ -336,11 +336,15 @@
                 >
                   GitHub</a
                 >
-                <a href="" target="_blank" class="button button-primary">
+                <a
+                  href="https://recipebook-baenninger.azurewebsites.net"
+                  target="_blank"
+                  class="button button-primary"
+                >
                   Live Demo</a
                 >
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -386,55 +390,60 @@
               </div>
             </div>
           </div>
-          <form
-            action="https://api.web3forms.com/submit"
-            method="post"
-            class="form-container"
-            id="form"
-          >
+          <div class="form-container">
             <p>Send me a message 🚀</p>
+            <form
+              action="https://api.web3forms.com/submit"
+              method="post"
+              id="form"
+            >
+              <input
+                type="hidden"
+                id="access_key"
+                name="access_key"
+                value="98fce292-555f-413b-a4d4-be5e4e914a5d"
+              />
 
-            <input
-              type="hidden"
-              id="access_key"
-              name="access_key"
-              value="98fce292-555f-413b-a4d4-be5e4e914a5d"
-            />
+              <input
+                type="text"
+                id="from_name"
+                name="from_name"
+                placeholder="Full name"
+                required
+              />
+              <input
+                type="email"
+                name="E-Mail"
+                id="email"
+                placeholder="E-Mail address"
+                required
+                autocomplete="email"
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <textarea
+                name="Message"
+                id="message"
+                placeholder="Your message"
+                required
+              ></textarea>
 
-            <input
-              type="text"
-              id="from_name"
-              name="from_name"
-              placeholder="Full name"
-              required
-            />
-            <input
-              type="email"
-              name="E-Mail"
-              id="email"
-              placeholder="E-Mail address"
-              required
-              autocomplete="email"
-            />
-            <input type="text" name="subject" placeholder="Subject" required />
-            <textarea
-              name="Message"
-              id="message"
-              placeholder="Your message"
-              required
-            ></textarea>
-
-            <input
-              type="hidden"
-              id="redirect"
-              name="redirect"
-              value="https://web3forms.com/success"
-            />
-
-            <button type="submit" class="button button-primary">
-              Send message
-            </button>
-          </form>
+              <input
+                type="hidden"
+                id="redirect"
+                name="redirect"
+                value="https://web3forms.com/success"
+              />
+              
+              <button type="submit" class="button button-primary">
+                Send message
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
