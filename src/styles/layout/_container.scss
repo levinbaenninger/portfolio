@@ -6,12 +6,6 @@
   gap: 4rem;
   height: 100%;
   width: 100%;
-
-  iframe {
-    flex: 1;
-    aspect-ratio: 16 / 9;
-    border-radius: 1rem;
-  }
 }
 
 .info-container {
@@ -25,5 +19,7 @@
 @media screen and (max-width: $bp-tablet) {
   .section-container {
     height: fit-content;
+    flex-direction: column;
+    gap: 2rem;
   }
 }

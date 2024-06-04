@@ -69,17 +69,24 @@
       font-weight: $fw-semi-bold;
     }
 
-    input,
-    textarea {
-      font-family: inherit;
-      padding: 0.75rem;
-      background-color: $clr-gray-100;
-      border: 1px solid $clr-gray-200;
-      border-radius: 0.375rem;
-    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
 
-    button {
-      width: fit-content;
+      input,
+      textarea {
+        font-family: inherit;
+        padding: 0.75rem;
+        background-color: $clr-gray-100;
+        border: 1px solid $clr-gray-200;
+        border-radius: 0.375rem;
+      }
+
+      button {
+        width: fit-content;
+      }
     }
   }
 }

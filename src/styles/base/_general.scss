@@ -29,21 +29,10 @@ section {
   padding-top: 2.5rem;
 }
 
-.visually-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.visually-hidden:focus {
-  clip: auto;
-  height: auto;
-  overflow: auto;
-  position: absolute;
-  width: auto;
+iframe {
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
 }
 
 @media screen and (max-width: $bp-tablet) {
@@ -55,10 +44,18 @@ section {
     height: fit-content;
     padding-top: 5rem;
   }
+
+  iframe {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: $bp-mobile) {
   body {
     padding: 0 2rem;
+  }
+
+  iframe {
+    width: 90%;
   }
 }
