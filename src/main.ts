@@ -24,3 +24,10 @@ document.getElementById('icon')!.addEventListener('click', toggleMenu);
 document.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', toggleMenu);
 });
+
+let clearForm = () => {
+  const form = document.getElementById('form') as HTMLFormElement;
+  form.reset();
+};
+
+document.getElementById('form')!.addEventListener('submit', clearForm);
