@@ -63,6 +63,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#video">Resources</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -81,6 +82,7 @@
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#skills" class="nav-link">Skills</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#video" class="nav-link">Resources</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </nav>
@@ -91,6 +93,7 @@
       <section id="hero">
         <div class="image-container">
           <img
+            loading="lazy"
             srcset="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png 400w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/avatar.png 300w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/avatar.png 250w"
             src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/avatar.png"
             sizes="(min-width: 1201px) 400px,
@@ -134,6 +137,7 @@
         <div class="section-container">
           <div class="image-container">
             <img
+              loading="lazy"
               srcset="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png 400w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_300/q_auto/f_auto/logo.png 300w, https://res.cloudinary.com/dyjow3jy3/image/upload/w_250/q_auto/f_auto/logo.png 250w"
               src="https://res.cloudinary.com/dyjow3jy3/image/upload/w_400/q_auto/f_auto/logo.png"
               sizes="(min-width: 1201px) 400px,
@@ -271,6 +275,7 @@
             <div class="card">
               <div class="image-container">
                 <img
+                  loading="lazy"
                   src="/images/projects/memory-project.svg"
                   alt="Icon for memory project"
                 />
@@ -296,6 +301,7 @@
             <div class="card">
               <div class="image-container">
                 <img
+                  loading="lazy"
                   src="/images/projects/login-project.svg"
                   alt="Icon for login project"
                 />
@@ -317,6 +323,7 @@
             <div class="card">
               <div class="image-container">
                 <img
+                  loading="lazy"
                   src="/images/projects/recipe-project.svg"
                   alt="Icon for recipe project"
                 />
@@ -339,7 +346,7 @@
         </div>
       </section>
       <section id="video">
-        <p>Get To Know My Favourite</p>
+        <p>Check Out My Favourite</p>
         <h3>Resources</h3>
         <div class="section-container">
           <iframe
@@ -347,6 +354,7 @@
             title="Build Responsive Real-World Websites With HTML and CSS (v2) - Promo Video"
             frameborder="0"
             allowfullscreen
+            loading="lazy"
           ></iframe>
 
           <iframe
@@ -354,6 +362,7 @@
             title="A YouTube video"
             frameborder="0"
             allowfullscreen
+            loading="lazy"
           ></iframe>
         </div>
       </section>
@@ -390,12 +399,14 @@
 
             <input
               type="hidden"
+              id="access_key"
               name="access_key"
               value="98fce292-555f-413b-a4d4-be5e4e914a5d"
             />
 
             <input
               type="text"
+              id="from_name"
               name="from_name"
               placeholder="Full name"
               required
@@ -403,18 +414,21 @@
             <input
               type="email"
               name="E-Mail"
+              id="email"
               placeholder="E-Mail address"
               required
             />
             <input type="text" name="subject" placeholder="Subject" required />
             <textarea
               name="Message"
+              id="message"
               placeholder="Your message"
               required
             ></textarea>
 
             <input
               type="hidden"
+              id="redirect"
               name="redirect"
               value="https://web3forms.com/success"
             />
@@ -433,6 +447,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#video">Resources</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
