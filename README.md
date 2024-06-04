@@ -11,4 +11,4 @@ This is my portfolio!
 
 ## Work In Progess
 
-Live demo of Code Pulse project and recipe book project don't work yet. These projects weren't deployed yet but in the GitHub repository you will find instructions on how to build and start the program yourself.
+Live demo of the Code Pulse project doesn't work yet. This project wasn't deployed yet but in the GitHub repository you will find instructions on how to build and start the program yourself.
