@@ -25,9 +25,7 @@ document.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', toggleMenu);
 });
 
-let clearForm = () => {
+window.onload = function () {
   const form = document.getElementById('form') as HTMLFormElement;
   form.reset();
 };
-
-document.getElementById('form')!.addEventListener('submit', clearForm);

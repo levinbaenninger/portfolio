@@ -383,22 +383,17 @@
           </div>
           <div class="form-container">
             <p>Send me a message 🚀</p>
-            <form
-              action="https://api.web3forms.com/submit"
-              method="post"
-              id="form"
-            >
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
               <input
                 type="hidden"
-                id="access_key"
                 name="access_key"
                 value="98fce292-555f-413b-a4d4-be5e4e914a5d"
               />
 
               <input
                 type="text"
-                id="from_name"
                 name="from_name"
+                id="name"
                 placeholder="Full name"
                 required
               />
@@ -413,6 +408,7 @@
               <input
                 type="text"
                 name="subject"
+                id="subject"
                 placeholder="Subject"
                 required
               />
@@ -429,7 +425,7 @@
                 name="redirect"
                 value="https://web3forms.com/success"
               />
-              
+
               <button type="submit" class="button button-primary">
                 Send message
               </button>
