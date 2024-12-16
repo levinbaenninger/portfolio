@@ -31,13 +31,14 @@ export const Experience = () => {
                 key={i}
                 className="border-b last:border-b-0 pb-8 last:pb-0">
                 <div className="flex items-center space-x-4">
-                  <Image
-                    src={j.logo}
-                    alt={j.company}
-                    width={40}
-                    height={40}
-                    className="rounded-md border shadow-md object-cover"
-                  />
+                  <div className="w-[60px] h-[60px] relative">
+                    <Image
+                      src={j.logo}
+                      alt={j.company}
+                      fill
+                      className="rounded-md border shadow-md object-contain p-1"
+                    />
+                  </div>
                   <div>
                     <h3 className="font-semibold">{j.role}</h3>
                     <p className="text-sm text-muted-foreground">{j.company}</p>
