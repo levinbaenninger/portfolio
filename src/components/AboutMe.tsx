@@ -11,8 +11,8 @@ export const AboutMe = () => {
           Junior Software Engineer with a passion for building dynamic and responsive web
           applications that delight users and bring ideas to life. <br />
           <br />
-          Let's create the <strong>"last innovation you'll ever need"</strong> — solutions that fuel
-          growth and set you apart from the competition.
+          Let&apos;s create the <strong>&quot;last innovation you&apos;ll ever need&quot;</strong> —
+          solutions that fuel growth and set you apart from the competition.
         </p>
       </CardContent>
     </Card>
