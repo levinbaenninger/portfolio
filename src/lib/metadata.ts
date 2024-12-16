@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export function constructMetadata({
   title = 'Levin Bänninger',
   description = 'I am a software engineer with a passion for building scalable and efficient web applications.',
-  image = '/thumbnail.png', // TODO: Update this to a real image
+  image = '/thumbnail.png',
   icons = '/avatar.svg',
   noIndex = false,
 }: {
