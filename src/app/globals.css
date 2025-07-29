@@ -5,6 +5,7 @@
   --foreground: #171717;
 }
 
+/* biome-ignore lint/nursery/noUnknownAtRule: Tailwind CSS requires this @rule */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
