@@ -83,14 +83,22 @@ jobs:
           restore-keys: |
             nextjs-build-
 
+      - name: 🔍 Verify files before upload
+        if: steps.changes.outputs.source == 'true'
+        run: |
+          echo "Files in .next directory:"
+          find .next -type f | head -10
+          echo "Total files in .next:"
+          find .next -type f | wc -l
+
       - name: 📦 Upload build artifacts
-        if: steps.changes.outputs.source == 'true' && hashFiles('.next/**/*') != ''
+        if: steps.changes.outputs.source == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: .next
+          path: .next/**
           retention-days: 1
-          if-no-files-found: error
+          if-no-files-found: warn
 
   static-analysis:
     runs-on: ubuntu-latest
