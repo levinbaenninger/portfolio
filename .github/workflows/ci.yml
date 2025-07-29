@@ -45,9 +45,31 @@ jobs:
 
       - name: 🏗️ Build Application
         if: steps.changes.outputs.source == 'true'
-        run: pnpm build
+        run: |
+          echo "Starting Next.js build..."
+          pnpm build
+          echo "Build completed successfully ✅"
         env:
           NEXT_TELEMETRY_DISABLED: 1
+
+      - name: 🔍 Debug build output
+        if: steps.changes.outputs.source == 'true'
+        run: |
+          echo "Checking if .next directory exists..."
+          ls -la
+          if [ -d ".next" ]; then
+            echo "✅ .next directory found"
+            ls -la .next/
+          else
+            echo "❌ .next directory not found"
+          fi
+          echo "Checking public directory..."
+          if [ -d "public" ]; then
+            echo "✅ public directory found"
+            ls -la public/
+          else
+            echo "❌ public directory not found"
+          fi
 
       - name: 💾 Cache Next.js build
         if: steps.changes.outputs.source == 'true'
@@ -62,13 +84,13 @@ jobs:
             nextjs-build-
 
       - name: 📦 Upload build artifacts
-        if: steps.changes.outputs.source == 'true'
+        if: steps.changes.outputs.source == 'true' && hashFiles('.next/**/*') != ''
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: |
-            .next/
-            public/
+            .next
+            public
           retention-days: 1
 
   static-analysis:
@@ -143,6 +165,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
+        continue-on-error: true
+
+      - name: 🏗️ Rebuild if no artifacts
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "No build artifacts found, rebuilding..."
+            pnpm build
+          else
+            echo "Build artifacts found, using cached build"
+          fi
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
 
       - name: 🌐 Start Server
         run: pnpm start &
@@ -212,6 +246,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
+        continue-on-error: true
+
+      - name: 🏗️ Rebuild if no artifacts
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "No build artifacts found, rebuilding..."
+            pnpm build
+          else
+            echo "Build artifacts found, using cached build"
+          fi
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
 
       - name: 🌐 Start Server
         run: pnpm start &
