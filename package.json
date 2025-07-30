@@ -26,11 +26,9 @@
     "cross-env": "^7.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "pa11y": "^8.0.0",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "ultracite": "5.1.2",
-    "wait-on": "^8.0.0"
+    "ultracite": "5.1.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [

@@ -1,0 +1,115 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 9 * * 1"
+
+env:
+  NODE_VERSION: "lts/*"
+  PNPM_VERSION: 10
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      has-source-changes: ${{ steps.changes.outputs.source }}
+      has-deps-changes: ${{ steps.changes.outputs.deps }}
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 🔍 Check for changes
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            source:
+              - 'src/**'
+              - 'public/**'
+              - '*.config.*'
+              - 'package.json'
+            deps:
+              - 'package.json'
+              - 'pnpm-lock.yaml'
+
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+        with:
+          pnpm-version: ${{ env.PNPM_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 🏗️ Build Application
+        if: steps.changes.outputs.source == 'true'
+        run: |
+          pnpm build
+
+      - name: 💾 Cache Next.js build
+        if: steps.changes.outputs.source == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+  static-analysis:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        check: [typecheck, lint]
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+        with:
+          pnpm-version: ${{ env.PNPM_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 🔬 Type Check
+        if: matrix.check == 'typecheck'
+        run: pnpm typecheck
+
+      - name: 🔬 Lint & Format Check
+        if: matrix.check == 'lint'
+        run: pnpm lint
+
+  security:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+        with:
+          pnpm-version: ${{ env.PNPM_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 🔒 Security Audit
+        if: needs.build.outputs.has-deps-changes == 'true' || github.event_name == 'schedule'
+        run: pnpm audit --audit-level moderate
+
+      - name: 🛡️ Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-and-quality
+
+      - name: 🔍 Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
