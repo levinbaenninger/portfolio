@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "npx ultracite lint",
-    "format": "npx ultracite format"
+    "format": "npx ultracite format",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "15.4.4",
