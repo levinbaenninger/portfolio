@@ -43,6 +43,16 @@ jobs:
           pnpm-version: ${{ env.PNPM_VERSION }}
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: 💾 Restore Next.js build cache
+        if: steps.changes.outputs.source == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: nextjs-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            nextjs-cache-${{ runner.os }}-
+
       - name: 🏗️ Build Application
         if: steps.changes.outputs.source == 'true'
         run: |
@@ -52,17 +62,24 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: 💾 Cache Next.js build
+      - name: 💾 Save Next.js build cache
         if: steps.changes.outputs.source == 'true'
         uses: actions/cache@v4
         with:
           path: |
             .next/cache
+          key: nextjs-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: 💾 Save Next.js build outputs
+        if: steps.changes.outputs.source == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
             .next/static
             .next/standalone
-          key: nextjs-build-${{ github.sha }}
+          key: nextjs-build-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
-            nextjs-build-
+            nextjs-build-${{ runner.os }}-
 
   static-analysis:
     runs-on: ubuntu-latest
@@ -132,14 +149,15 @@ jobs:
           pnpm-version: ${{ env.PNPM_VERSION }}
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: 💾 Restore Next.js build cache
+      - name: 💾 Restore Next.js build outputs
         uses: actions/cache@v4
         with:
           path: |
-            .next/cache
-          key: nextjs-build-${{ github.sha }}
+            .next/static
+            .next/standalone
+          key: nextjs-build-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
-            nextjs-build-
+            nextjs-build-${{ runner.os }}-
 
       - name: 📊 Analyze Bundle
         run: pnpm analyze
