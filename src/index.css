@@ -55,7 +55,6 @@ section {
     @apply xl:mt-20 md:mt-0 mt-40;
   }
 
-  /* General Grids */
   .grid-base {
     @apply grid grid-cols-1;
   }
@@ -236,6 +235,7 @@ section {
 
   .marquee-item {
     @apply md:w-40 w-32;
+    float: left;
   }
 
   .timeline-wrapper {
@@ -322,7 +322,6 @@ section {
   }
 }
 
-/* Hero text slider starts */
 .slide {
   display: inline-block;
   flex-direction: column;
@@ -362,8 +361,6 @@ section {
   }
 }
 
-/* Hero Text slider ends */
-
 .gradient-line {
   width: 2px;
   background: linear-gradient(
@@ -384,6 +381,7 @@ section {
     rgba(255, 255, 255, 0) 100%
   );
 }
+
 .gradient-edge:nth-of-type(2) {
   right: 0;
   background: linear-gradient(
@@ -393,12 +391,12 @@ section {
   );
 }
 
-/* marquee */
 .marquee {
   width: 100dvw;
   overflow: hidden;
   position: relative;
 }
+
 .marquee-box {
   display: flex;
   align-items: center;
@@ -408,9 +406,7 @@ section {
   overflow: hidden;
   animation: marquee 60s linear infinite;
 }
-.marquee-item {
-  float: left;
-}
+
 @keyframes marquee {
   0% {
     left: 0;
@@ -419,7 +415,6 @@ section {
     left: -100%;
   }
 }
-/* marquee end */
 
 .card {
   --start: 0;
