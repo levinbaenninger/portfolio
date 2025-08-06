@@ -1,46 +1,46 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "Europe/Berlin"
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Europe/Berlin'
 
     groups:
       react:
         patterns:
-          - "react*"
-          - "@types/react*"
+          - 'react*'
+          - '@types/react*'
 
       build-tools:
         patterns:
-          - "vite*"
-          - "@vitejs/*"
-          - "typescript*"
+          - 'vite*'
+          - '@vitejs/*'
+          - 'typescript*'
 
       dev-tools:
         patterns:
-          - "eslint*"
-          - "prettier*"
-          - "@eslint/*"
-          - "typescript-eslint*"
+          - 'eslint*'
+          - 'prettier*'
+          - '@eslint/*'
+          - 'typescript-eslint*'
 
       git-tools:
         patterns:
-          - "husky*"
-          - "lint-staged*"
-          - "@commitlint/*"
+          - 'husky*'
+          - 'lint-staged*'
+          - '@commitlint/*'
 
     open-pull-requests-limit: 10
 
     commit-message:
-      prefix: "chore(deps)"
-      prefix-development: "chore(dev-deps)"
-      
-    allow:
-      - dependency-type: "direct"
-      - dependency-type: "indirect"
+      prefix: 'chore(deps)'
+      prefix-development: 'chore(dev-deps)'
 
-    rebase-strategy: "auto"
+    allow:
+      - dependency-type: 'direct'
+      - dependency-type: 'indirect'
+
+    rebase-strategy: 'auto'
