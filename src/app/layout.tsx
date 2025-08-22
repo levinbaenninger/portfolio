@@ -13,6 +13,7 @@ import {
   type SpacingToken,
 } from "@once-ui-system/core";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import classNames from "classnames";
 
 export async function generateMetadata() {
@@ -167,6 +168,7 @@ export default async function RootLayout({
         </Column>
       </Providers>
       <Analytics />
+      <SpeedInsights />
     </Flex>
   );
 }
