@@ -1,0 +1,34 @@
+---
+title: "LLMs Are Not APIs"
+summary: "We keep designing AI features as if LLMs were deterministic APIs. They aren't. They're stochastic collaborators with fuzzy recall and shifting opinions. Treat them like brittle endpoints and you'll ship brittle products."
+publishedAt: "2025-08-22"
+tag: "AI"
+---
+
+# LLMs Are Not APIs, They're Colleagues with Bad Memory
+
+We keep designing AI features as if LLMs were deterministic APIs. They aren't. They're stochastic collaborators with fuzzy recall and shifting opinions. Treat them like brittle endpoints and you'll ship brittle products.
+
+Three implications for real-world apps:
+
+- **Contracts lie, guardrails don't**: You can't rely on a fixed schema contract from a model. Even “JSON mode” leaks. The reliable boundary is your own validation layer: strict parsers, retries with function calling, and fallbacks. Think: model -> constrained output (JSON schema/Zod) -> checker -> retry/repair -> proceed.
+- **Latency is UX, not infra**: 800 ms vs. 2.8 s reads like a backend metric, but it's an interface problem. Users need progressive disclosure: instant skeletons, speculative UI, and incremental streaming. Don't block the whole flow on one big completion—chunk, stream, and precompute.
+- **Determinism is a feature toggle**: If two users get different answers to the “same” prompt, your product has a trust problem. Cache aggressively at the right granularity (post-normalized prompts), pin models/versions, and record prompt+response for repeatability. For critical paths, use hybrid systems: retrieval, tools, and rules that converge outputs.
+
+What actually works:
+
+- **Retrieval over prompting**: Encode facts outside the model (RAG). Prompts are for behavior; knowledge should live in your data. Most “hallucinations” are just missing retrieval.
+- **Tool use > monologue**: Don't ask the model to “figure it all out.” Give it tools (search, calculators, DB queries) and a small planning loop. Constrain the action space; supervise with timeouts.
+- **Small loops, explicit state**: Long chain-of-thought is latency and error surface. Prefer short, auditable steps with state you own (task list, scratchpad, JSON plan). Log each step; make it replayable.
+- **Post-processing is product**: Scoring, deduping, and ranking matter more than clever prompts. Add a second, cheaper model or rules to clean and verify outputs. “Two-model pattern” beats “one perfect prompt.”
+- **Measure like a system, not a demo**: Golden sets, offline evals, and canaries. Track answer quality, JSON validity rate, latency percentiles, and tool success. If you can't A/B it, you can't improve it.
+
+**Hot take**: prompt engineering is UI design for machines. The prompt is a contract the model can half-keep. Your job is to design the rest of the system so it doesn't matter when it doesn't.
+
+## TL;DR
+
+- LLMs are stochastic collaborators, not stable APIs.
+- Own the boundaries: validate, retry, and fall back.
+- Move knowledge to retrieval; force structure with tools.
+- Stream, cache, pin versions; measure end-to-end.
+- Reliability is a system property, not a prompt.

@@ -1,0 +1,33 @@
+---
+title: "Type Safety Is a UX Feature"
+summary: "We talk about type safety like it's a developer luxury. It isn't. It's a user experience feature."
+publishedAt: "2025-08-22"
+tag: "UX"
+---
+
+# Type Safety Is a UX Feature
+
+We talk about type safety like it's a developer luxury. **It isn't.** It's a user experience feature.
+
+Every time a component accepts `any` or a backend endpoint returns a maybe-this-maybe-that shape, we push uncertainty downstream. That uncertainty becomes UI glitches, inconsistent states, and “try again” toasts. Users don't see the type system, but they feel its absence: slow UIs, broken flows, mismatched error handling, and features that behave differently across pages.
+
+End-to-end types (tRPC, Zod, TypeScript) give the UI a contract it can trust. That trust shows up as:
+
+- **Predictable rendering**: no suspense-flash from undefined props and “optional” fields that weren't optional.
+- **Honest loading and error states**: because errors are modeled, not improvised.
+- **Faster interactions**: confident optimistic updates instead of defensive refetch storms.
+- **Consistency across teams**: the design system's props are source-of-truth, not vibes.
+
+Counterpoint: **“Types slow us down.”**
+
+Only if you treat them like ceremony. The trick is to type the seams—APIs, component boundaries, and state—then let inference flow inward. Type the edges, not every line. Keep runtime validation at trust boundaries (Zod on the wire), keep component props narrow, and let your data layer (TanStack Query) carry those types end-to-end. It's less “more types everywhere” and more “zero surprises anywhere.”
+
+The litmus test: if you removed your types today, how many bugs would ship tomorrow? If the answer is “not many,” your types aren't pulling their weight. If the answer is “too many,” congrats—you've turned type safety into UX.
+
+## TL;DR
+
+- Users feel uncertainty; types remove it.
+- Type the edges, let inference do the rest.
+- Model errors and states explicitly.
+- End-to-end types enable faster, smoother UI.
+- Type safety isn't polish. It's product.
