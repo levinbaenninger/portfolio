@@ -1,6 +1,8 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 
+import { Footer, Header, Providers } from "@/components";
+import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 import {
   Background,
   Column,
@@ -10,9 +12,8 @@ import {
   RevealFx,
   type SpacingToken,
 } from "@once-ui-system/core";
+import { Analytics } from "@vercel/analytics/next";
 import classNames from "classnames";
-import { Footer, Header, Providers } from "@/components";
-import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -165,6 +166,7 @@ export default async function RootLayout({
           <Footer />
         </Column>
       </Providers>
+      <Analytics />
     </Flex>
   );
 }
