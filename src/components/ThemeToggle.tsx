@@ -2,30 +2,18 @@
 
 import { ToggleButton, useTheme } from "@once-ui-system/core";
 import type React from "react";
-import { useEffect, useState } from "react";
 
 export const ThemeToggle: React.FC = () => {
-  const { setTheme } = useTheme();
-  const [_mounted, setMounted] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
-  }, []);
-
-  useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
-  }, []);
-
-  const icon = currentTheme === "dark" ? "light" : "dark";
-  const nextTheme = currentTheme === "light" ? "dark" : "light";
+  const effectiveTheme = theme === "system" ? resolvedTheme : theme;
+  const nextTheme = effectiveTheme === "light" ? "dark" : "light";
 
   return (
     <ToggleButton
       aria-label={`Switch to ${nextTheme} mode`}
       onClick={() => setTheme(nextTheme)}
-      prefixIcon={icon}
+      prefixIcon={nextTheme}
     />
   );
 };
