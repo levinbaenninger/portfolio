@@ -1,6 +1,6 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, person } from "@/resources";
+import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -32,11 +32,8 @@ export default function Blog() {
         {blog.title}
       </Heading>
       <Column fillWidth flex={1} gap="40">
-        <Posts columns="2" direction="column" range={[1, 4]} thumbnail />
-        <Heading as="h2" variant="heading-strong-xl">
-          Earlier posts
-        </Heading>
-        <Posts columns="2" range={[4]} />
+        <Posts range={[1, 1]} thumbnail />
+        <Posts range={[2]} columns="2" thumbnail direction="column" />
       </Column>
     </Column>
   );
