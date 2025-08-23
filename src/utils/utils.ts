@@ -1,12 +1,12 @@
+import matter from "gray-matter";
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 
 type Team = {
   name: string;
   role: string;
   avatar: string;
-  linkedIn: string;
+  link: string;
 };
 
 type Metadata = {
