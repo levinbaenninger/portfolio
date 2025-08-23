@@ -1,12 +1,14 @@
-import Image from "next/image";
-import { ImageResponse } from "next/og";
+/* eslint-disable @next/next/no-img-element */
+
 import { baseURL, person } from "@/resources";
+import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const title = url.searchParams.get("title") || "Portfolio";
+  const origin = url.origin || baseURL;
 
   async function loadGoogleFont(font: string) {
     const url = `https://fonts.googleapis.com/css2?family=${font}`;
@@ -63,12 +65,13 @@ export async function GET(request: Request) {
             gap: "5rem",
           }}
         >
-          <Image
+          {/** biome-ignore lint/performance/noImgElement: This image is not used in the page */}
+          <img
             alt="avatar"
-            src={baseURL + person.avatar}
+            src={origin + person.avatar}
+            width={192}
+            height={192}
             style={{
-              width: "12rem",
-              height: "12rem",
               objectFit: "cover",
               borderRadius: "100%",
             }}

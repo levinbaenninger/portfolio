@@ -1,5 +1,5 @@
-import { Line, Row, Text } from "@once-ui-system/core";
 import type { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types";
+import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Levin",
@@ -43,7 +43,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: `/api/og/generate`,
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,

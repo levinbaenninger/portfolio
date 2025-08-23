@@ -1,3 +1,6 @@
+import { Posts } from "@/components/blog/Posts";
+import { Projects } from "@/components/work/Projects";
+import { about, baseURL, home, person, routes } from "@/resources";
 import {
   Avatar,
   Badge,
@@ -11,9 +14,6 @@ import {
   Schema,
   Text,
 } from "@once-ui-system/core";
-import { Posts } from "@/components/blog/Posts";
-import { Projects } from "@/components/work/Projects";
-import { about, baseURL, home, person, routes } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
