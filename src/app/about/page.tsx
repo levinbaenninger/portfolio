@@ -1,3 +1,6 @@
+import styles from "@/components/about/about.module.scss";
+import TableOfContents from "@/components/about/TableOfContents";
+import { about, baseURL, person, social } from "@/resources";
 import {
   Avatar,
   Button,
@@ -13,9 +16,6 @@ import {
   Text,
 } from "@once-ui-system/core";
 import React from "react";
-import styles from "@/components/about/about.module.scss";
-import TableOfContents from "@/components/about/TableOfContents";
-import { about, baseURL, person, social } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -88,6 +88,7 @@ export default function About() {
             paddingBottom="xl"
             paddingX="l"
             position="sticky"
+            s={{ position: "relative" }}
           >
             <Avatar size="xl" src={person.avatar} />
             <Row gap="8" vertical="center">
