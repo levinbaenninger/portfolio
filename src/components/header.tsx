@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { about, blog, display, person, routes, work } from "@/resources";
-import styles from "./Header.module.scss";
+import styles from "./header.module.scss";
 import { ThemeToggle } from "./theme-toggle";
 
 type TimeDisplayProps = {

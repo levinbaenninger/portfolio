@@ -4,7 +4,7 @@ import { Flex, Heading, IconButton, useToast } from "@once-ui-system/core";
 import type React from "react";
 import type { JSX } from "react";
 
-import styles from "@/components/HeadingLink.module.scss";
+import styles from "@/components/heading-link.module.scss";
 
 type HeadingLinkProps = {
   id: string;
