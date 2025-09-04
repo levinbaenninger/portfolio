@@ -64,7 +64,7 @@ export type Social = Array<{
 /**
  * Base interface for page configuration with common properties.
  */
-export interface BasePageConfig {
+export type BasePageConfig = {
   /** Path to the page
    *
    * The path should be relative to the public directory
@@ -78,7 +78,7 @@ export interface BasePageConfig {
   description: string;
   /** OG Image should be put inside `public/images` folder */
   image?: `/images/${string}` | string;
-}
+};
 
 /**
  * Home page configuration.

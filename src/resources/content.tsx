@@ -1,5 +1,13 @@
-import type { About, Blog, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
+import type {
+  About,
+  Blog,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
 
 const person: Person = {
   firstName: "Levin",
@@ -43,7 +51,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: `/api/og/generate`,
+  image: "/api/og/generate",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
@@ -63,8 +71,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Levin, a junior software engineer at Bühler, keeping our component library tidy so teams
-      move fast. Off-hours, I build my own stuff.
+      I'm Levin, a junior software engineer at Bühler, keeping our component
+      library tidy so teams move fast. Off-hours, I build my own stuff.
     </>
   ),
 };
@@ -90,10 +98,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm Levin, a junior software engineer at Bühler. By day I wrangle our component library so
-        teams ship faster without breaking UX; by night I tinker on side projects for fun. I like
-        clean APIs, tidy repos, and code that explains itself. Coffee-powered, test-approved, always
-        learning.
+        I'm Levin, a junior software engineer at Bühler. By day I wrangle our
+        component library so teams ship faster without breaking UX; by night I
+        tinker on side projects for fun. I like clean APIs, tidy repos, and code
+        that explains itself. Coffee-powered, test-approved, always learning.
       </>
     ),
   },
@@ -132,8 +140,8 @@ const about: About = {
         title: "Web Engineering",
         description: (
           <>
-            Building modern web apps with Next.js, TypeScript, Tailwind, tRPC, TanStack Query, and
-            Postgres — plus Angular during work.
+            Building modern web apps with Next.js, TypeScript, Tailwind, tRPC,
+            TanStack Query, and Postgres — plus Angular during work.
           </>
         ),
         tags: [
@@ -172,8 +180,8 @@ const about: About = {
         title: "Designing",
         description: (
           <>
-            From rough wireframes to polished flows in Figma — components, auto-layout, tokens, and
-            prototypes that translate cleanly to code.
+            From rough wireframes to polished flows in Figma — components,
+            auto-layout, tokens, and prototypes that translate cleanly to code.
           </>
         ),
         tags: [

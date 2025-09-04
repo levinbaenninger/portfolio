@@ -59,7 +59,6 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
 
 function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   if (!src) {
-    console.error("Media requires a valid 'src' property.");
     return null;
   }
 
@@ -94,7 +93,13 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   }: Omit<React.ComponentProps<typeof HeadingLink>, "as" | "id">) => {
     const slug = slugify(children as string);
     return (
-      <HeadingLink as={as} id={slug} marginBottom="12" marginTop="24" {...props}>
+      <HeadingLink
+        as={as}
+        id={slug}
+        marginBottom="12"
+        marginTop="24"
+        {...props}
+      >
         {children}
       </HeadingLink>
     );
@@ -211,5 +216,10 @@ type CustomMDXProps = MDXRemoteProps & {
 };
 
 export function CustomMDX(props: CustomMDXProps) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }

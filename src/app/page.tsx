@@ -1,6 +1,3 @@
-import { Posts } from "@/components/blog/Posts";
-import { Projects } from "@/components/work/Projects";
-import { about, baseURL, home, person, routes } from "@/resources";
 import {
   Avatar,
   Badge,
@@ -14,8 +11,11 @@ import {
   Schema,
   Text,
 } from "@once-ui-system/core";
+import { Posts } from "@/components/blog/posts";
+import { Projects } from "@/components/work/projects";
+import { about, baseURL, home, person, routes } from "@/resources";
 
-export async function generateMetadata() {
+export function generateMetadata() {
   return Meta.generate({
     title: home.title,
     description: home.description,
@@ -64,18 +64,37 @@ export default function Home() {
               </Badge>
             </RevealFx>
           )}
-          <RevealFx fillWidth horizontal="center" paddingBottom="16" translateY="4">
+          <RevealFx
+            fillWidth
+            horizontal="center"
+            paddingBottom="16"
+            translateY="4"
+          >
             <Heading variant="display-strong-l" wrap="balance">
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx delay={0.2} fillWidth horizontal="center" paddingBottom="32" translateY="8">
-            <Text onBackground="neutral-weak" variant="heading-default-xl" wrap="balance">
+          <RevealFx
+            delay={0.2}
+            fillWidth
+            horizontal="center"
+            paddingBottom="32"
+            translateY="8"
+          >
+            <Text
+              onBackground="neutral-weak"
+              variant="heading-default-xl"
+              wrap="balance"
+            >
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx delay={0.4} horizontal="center" paddingLeft="12" paddingTop="12">
-            {/** biome-ignore lint/correctness/useUniqueElementIds: ID has to be about */}
+          <RevealFx
+            delay={0.4}
+            horizontal="center"
+            paddingLeft="12"
+            paddingTop="12"
+          >
             <Button
               arrowIcon
               data-border="rounded"

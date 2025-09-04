@@ -1,8 +1,9 @@
-export { Footer } from "@/components/Footer";
-export { Header } from "@/components/Header";
-export { HeadingLink } from "@/components/HeadingLink";
+/** biome-ignore-all lint/performance/noBarrelFile: Architecture decision */
+export { Footer } from "@/components/footer";
+export { Header } from "@/components/header";
+export { HeadingLink } from "@/components/heading-link";
 export { CustomMDX } from "@/components/mdx";
-export { ProjectCard } from "@/components/ProjectCard";
-export { Providers } from "@/components/Providers";
-export { ScrollToHash } from "@/components/ScrollToHash";
-export { ThemeToggle } from "@/components/ThemeToggle";
+export { ProjectCard } from "@/components/project-card";
+export { Providers } from "@/components/providers";
+export { ScrollToHash } from "@/components/scroll-to-hash";
+export { ThemeToggle } from "@/components/theme-toggle";

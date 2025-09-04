@@ -6,7 +6,13 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth horizontal="center" padding="8" s={{ direction: "column" }}>
+    <Row
+      as="footer"
+      fillWidth
+      horizontal="center"
+      padding="8"
+      s={{ direction: "column" }}
+    >
       <Row
         className={styles.mobile}
         gap="16"
@@ -37,7 +43,7 @@ export const Footer = () => {
                   tooltip={item.name}
                   variant="ghost"
                 />
-              ),
+              )
           )}
         </Row>
       </Row>

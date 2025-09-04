@@ -2,14 +2,14 @@
 
 import { Avatar, Card, Column, Media, Row, Text } from "@once-ui-system/core";
 import { person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "@/utils/format-date";
 
-interface PostProps {
+type PostProps = {
   // biome-ignore lint/suspicious/noExplicitAny: No type defined for post
   post: any;
   thumbnail: boolean;
   direction?: "row" | "column";
-}
+};
 
 export default function Post({ post, thumbnail, direction }: PostProps) {
   return (
@@ -39,7 +39,13 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
         />
       )}
       <Row fillWidth>
-        <Column gap="20" maxWidth={28} paddingX="m" paddingY="24" vertical="center">
+        <Column
+          gap="20"
+          maxWidth={28}
+          paddingX="m"
+          paddingY="24"
+          vertical="center"
+        >
           <Row gap="24" vertical="center">
             <Row gap="16" vertical="center">
               <Avatar size="s" src={person.avatar} />

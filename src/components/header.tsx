@@ -6,14 +6,17 @@ import { useEffect, useState } from "react";
 
 import { about, blog, display, person, routes, work } from "@/resources";
 import styles from "./Header.module.scss";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "./theme-toggle";
 
 type TimeDisplayProps = {
   timeZone: string;
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({
+  timeZone,
+  locale = "en-GB",
+}) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -31,6 +34,8 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
     };
 
     updateTime();
+
+    // biome-ignore lint/style/noMagicNumbers: Time interval
     const intervalId = setInterval(updateTime, 1000);
 
     return () => clearInterval(intervalId);
@@ -46,7 +51,13 @@ export const Header = () => {
 
   return (
     <>
-      <Fade fillWidth height="80" position="fixed" s={{ hide: true }} zIndex={9} />
+      <Fade
+        fillWidth
+        height="80"
+        position="fixed"
+        s={{ hide: true }}
+        zIndex={9}
+      />
       <Fade
         bottom="0"
         fillWidth
@@ -71,7 +82,12 @@ export const Header = () => {
         }}
         zIndex={9}
       >
-        <Row fillWidth paddingLeft="12" textVariant="body-default-s" vertical="center">
+        <Row
+          fillWidth
+          paddingLeft="12"
+          textVariant="body-default-s"
+          vertical="center"
+        >
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
@@ -84,9 +100,18 @@ export const Header = () => {
             shadow="l"
             zIndex={1}
           >
-            <Row gap="4" suppressHydrationWarning textVariant="body-default-s" vertical="center">
+            <Row
+              gap="4"
+              suppressHydrationWarning
+              textVariant="body-default-s"
+              vertical="center"
+            >
               {routes["/"] && (
-                <ToggleButton href="/" prefixIcon="home" selected={pathname === "/"} />
+                <ToggleButton
+                  href="/"
+                  prefixIcon="home"
+                  selected={pathname === "/"}
+                />
               )}
               <Line background="neutral-alpha-medium" maxHeight="24" vert />
               {routes["/about"] && (

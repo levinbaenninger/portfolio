@@ -1,8 +1,6 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 
-import { Footer, Header, Providers } from "@/components";
-import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 import {
   Background,
   Column,
@@ -15,8 +13,10 @@ import {
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import classNames from "classnames";
+import { Footer, Header, Providers } from "@/components";
+import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 
-export async function generateMetadata() {
+export function generateMetadata() {
   return Meta.generate({
     title: home.title,
     description: home.description,
@@ -26,7 +26,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -38,14 +38,13 @@ export default async function RootLayout({
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
-        fonts.code.variable,
+        fonts.code.variable
       )}
       fillWidth
       lang="en"
       suppressHydrationWarning
     >
       <head>
-        {/** biome-ignore lint/correctness/useUniqueElementIds: Needed for theme toggling */}
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: Needed for theme toggling
           dangerouslySetInnerHTML={{

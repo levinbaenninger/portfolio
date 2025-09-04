@@ -6,18 +6,23 @@ import type { JSX } from "react";
 
 import styles from "@/components/HeadingLink.module.scss";
 
-interface HeadingLinkProps {
+type HeadingLinkProps = {
   id: string;
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: React.ReactNode;
   style?: React.CSSProperties;
-}
+};
 
-export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
+export const HeadingLink: React.FC<HeadingLinkProps> = ({
+  id,
+  level,
+  children,
+  style,
+}) => {
   const { addToast } = useToast();
 
-  const copyURL = (id: string): void => {
-    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+  const copyURL = (urlId: string): void => {
+    const url = `${window.location.origin}${window.location.pathname}#${urlId}`;
     navigator.clipboard.writeText(url).then(
       () => {
         addToast({
@@ -30,7 +35,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
           variant: "danger",
           message: "Failed to copy link.",
         });
-      },
+      }
     );
   };
 

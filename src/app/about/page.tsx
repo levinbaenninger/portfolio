@@ -1,6 +1,3 @@
-import styles from "@/components/about/about.module.scss";
-import TableOfContents from "@/components/about/TableOfContents";
-import { about, baseURL, person, social } from "@/resources";
 import {
   Avatar,
   Button,
@@ -16,8 +13,11 @@ import {
   Text,
 } from "@once-ui-system/core";
 import React from "react";
+import styles from "@/components/about/about.module.scss";
+import TableOfContents from "@/components/about/table-of-contents";
+import { about, baseURL, person, social } from "@/resources";
 
-export async function generateMetadata() {
+export function generateMetadata() {
   return Meta.generate({
     title: about.title,
     description: about.description,
@@ -98,6 +98,7 @@ export default function About() {
             {person.languages && person.languages.length > 0 && (
               <Row gap="8" wrap>
                 {person.languages.map((language, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: No ID for languages
                   <Tag key={index} size="l">
                     {language}
                   </Tag>
@@ -129,7 +130,11 @@ export default function About() {
                 }}
                 vertical="center"
               >
-                <Icon name="calendar" onBackground="brand-weak" paddingLeft="12" />
+                <Icon
+                  name="calendar"
+                  onBackground="brand-weak"
+                  paddingLeft="12"
+                />
                 <Row paddingX="8">Schedule a call</Row>
                 <IconButton
                   data-border="rounded"
@@ -185,57 +190,92 @@ export default function About() {
                           />
                         </Row>
                       </React.Fragment>
-                    ),
+                    )
                 )}
               </Row>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column fillWidth gap="m" marginBottom="xl" textVariant="body-default-l">
+            <Column
+              fillWidth
+              gap="m"
+              marginBottom="xl"
+              textVariant="body-default-l"
+            >
               {about.intro.description}
             </Column>
           )}
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} marginBottom="m" variant="display-strong-s">
+              <Heading
+                as="h2"
+                id={about.work.title}
+                marginBottom="m"
+                variant="display-strong-s"
+              >
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column fillWidth key={`${experience.company}-${experience.role}-${index}`}>
-                    <Row fillWidth horizontal="between" marginBottom="4" vertical="end">
+                  <Column
+                    fillWidth
+                    key={`${experience.company}-${experience.role}-${index}`}
+                  >
+                    <Row
+                      fillWidth
+                      horizontal="between"
+                      marginBottom="4"
+                      vertical="end"
+                    >
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
-                      <Text onBackground="neutral-weak" variant="heading-default-xs">
+                      <Text
+                        onBackground="neutral-weak"
+                        variant="heading-default-xs"
+                      >
                         {experience.timeframe}
                       </Text>
                     </Row>
-                    <Text marginBottom="m" onBackground="brand-weak" variant="body-default-s">
+                    <Text
+                      marginBottom="m"
+                      onBackground="brand-weak"
+                      variant="body-default-s"
+                    >
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
+                        (
+                          achievement: React.ReactNode,
+                          achievementIndex: number
+                        ) => (
                           <Text
                             as="li"
-                            key={`${experience.company}-${index}`}
+                            key={`${experience.company}-${achievementIndex}`}
                             variant="body-default-m"
                           >
                             {achievement}
                           </Text>
-                        ),
+                        )
                       )}
                     </Column>
                     {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth gap="12" paddingLeft="40" paddingTop="m" wrap>
-                        {experience.images.map((image, index) => (
+                      <Row
+                        fillWidth
+                        gap="12"
+                        paddingLeft="40"
+                        paddingTop="m"
+                        wrap
+                      >
+                        {experience.images.map((image, imageIndex) => (
                           <Row
                             border="neutral-medium"
                             height={image.height}
-                            key={index}
+                            // biome-ignore lint/suspicious/noArrayIndexKey: No ID for images
+                            key={imageIndex}
                             minWidth={image.width}
                             radius="m"
                           >
@@ -258,16 +298,28 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} marginBottom="m" variant="display-strong-s">
+              <Heading
+                as="h2"
+                id={about.studies.title}
+                marginBottom="m"
+                variant="display-strong-s"
+              >
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column fillWidth gap="4" key={`${institution.name}-${index}`}>
+                  <Column
+                    fillWidth
+                    gap="4"
+                    key={`${institution.name}-${index}`}
+                  >
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
-                    <Text onBackground="neutral-weak" variant="heading-default-xs">
+                    <Text
+                      onBackground="neutral-weak"
+                      variant="heading-default-xs"
+                    >
                       {institution.description}
                     </Text>
                   </Column>
@@ -288,6 +340,7 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: No ID for skills
                   <Column fillWidth gap="4" key={`${skill}-${index}`}>
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
@@ -298,7 +351,11 @@ export default function About() {
                     {skill.tags && skill.tags.length > 0 && (
                       <Row gap="8" paddingTop="8" wrap>
                         {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} prefixIcon={tag.icon} size="l">
+                          <Tag
+                            key={`${skill.title}-${tagIndex}`}
+                            prefixIcon={tag.icon}
+                            size="l"
+                          >
                             {tag.name}
                           </Tag>
                         ))}
@@ -306,11 +363,12 @@ export default function About() {
                     )}
                     {skill.images && skill.images.length > 0 && (
                       <Row fillWidth gap="12" paddingTop="m" wrap>
-                        {skill.images.map((image, index) => (
+                        {skill.images.map((image, imageIndex) => (
                           <Row
                             border="neutral-medium"
                             height={image.height}
-                            key={index}
+                            // biome-ignore lint/suspicious/noArrayIndexKey: No ID for images
+                            key={imageIndex}
                             minWidth={image.width}
                             radius="m"
                           >

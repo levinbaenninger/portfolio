@@ -1,5 +1,11 @@
 import type { IconType } from "react-icons";
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaXTwitter } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaXTwitter,
+} from "react-icons/fa6";
 import {
   HiArrowRight,
   HiArrowTopRightOnSquare,

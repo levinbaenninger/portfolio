@@ -4,7 +4,7 @@ import { Column, Flex, Text } from "@once-ui-system/core";
 import type React from "react";
 import styles from "./about.module.scss";
 
-interface TableOfContentsProps {
+type TableOfContentsProps = {
   structure: {
     title: string;
     display: boolean;
@@ -16,9 +16,14 @@ interface TableOfContentsProps {
       subItems: boolean;
     };
   };
-}
+};
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
+const SECTION_OFFSET = 80;
+
+const TableOfContents: React.FC<TableOfContentsProps> = ({
+  structure,
+  about,
+}) => {
   const scrollTo = (id: string, offset: number) => {
     const element = document.getElementById(id);
     if (element) {
@@ -32,7 +37,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
     }
   };
 
-  if (!about.tableOfContent.display) return null;
+  if (!about.tableOfContent.display) {
+    return null;
+  }
 
   return (
     <Column
@@ -50,12 +57,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       {structure
         .filter((section) => section.display)
         .map((section, sectionIndex) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: No ID for sections
           <Column gap="12" key={sectionIndex}>
             <Flex
               className={styles.hover}
               cursor="interactive"
               gap="8"
-              onClick={() => scrollTo(section.title, 80)}
+              onClick={() => scrollTo(section.title, SECTION_OFFSET)}
               vertical="center"
             >
               <Flex background="neutral-strong" height="1" minWidth="16" />
@@ -66,9 +74,10 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                 <Flex
                   className={styles.hover}
                   gap="12"
+                  // biome-ignore lint/suspicious/noArrayIndexKey: No ID for items
                   key={itemIndex}
                   l={{ hide: true }}
-                  onClick={() => scrollTo(item, 80)}
+                  onClick={() => scrollTo(item, SECTION_OFFSET)}
                   paddingLeft="24"
                   style={{ cursor: "pointer" }}
                   vertical="center"

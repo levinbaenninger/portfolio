@@ -2,10 +2,10 @@ import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 import { getPosts } from "@/utils/utils";
 
-interface ProjectsProps {
+type ProjectsProps = {
   range?: [number, number?];
   exclude?: string[];
-}
+};
 
 export function Projects({ range, exclude }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
@@ -16,7 +16,10 @@ export function Projects({ range, exclude }: ProjectsProps) {
   }
 
   const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    return (
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+    );
   });
 
   const displayedProjects = range
@@ -27,7 +30,9 @@ export function Projects({ range, exclude }: ProjectsProps) {
     <Column fillWidth gap="xl" marginBottom="40">
       {displayedProjects.map((post, index) => (
         <ProjectCard
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          avatars={
+            post.metadata.team?.map((member) => ({ src: member.avatar })) || []
+          }
           content={post.content}
           description={post.metadata.summary}
           href={`work/${post.slug}`}

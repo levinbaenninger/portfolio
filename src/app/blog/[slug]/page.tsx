@@ -15,10 +15,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
 import { about, baseURL, blog, person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "@/utils/format-date";
 import { getPosts } from "@/utils/utils";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export function generateStaticParams(): { slug: string }[] {
   const posts = getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
     slug: post.slug,
@@ -36,41 +36,56 @@ export async function generateMetadata({
     : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((post) => post.slug === slugPath);
+  const post = posts.find((p) => p.slug === slugPath);
 
-  if (!post) return {};
+  if (!post) {
+    return {};
+  }
 
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+    image:
+      post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
   });
 }
 
-export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  const post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
+  const post = getPosts(["src", "app", "blog", "posts"]).find(
+    (p) => p.slug === slugPath
+  );
 
   if (!post) {
     notFound();
   }
 
   const _avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
+    post.metadata.team?.map((p) => ({
+      src: p.avatar,
     })) || [];
 
   return (
     <Row fillWidth marginBottom="40">
       <Row m={{ hide: true }} maxWidth={12} />
       <Row fillWidth horizontal="center">
-        <Column as="section" gap="l" horizontal="center" maxWidth="m" paddingTop="24">
+        <Column
+          as="section"
+          gap="l"
+          horizontal="center"
+          maxWidth="m"
+          paddingTop="24"
+        >
           <Schema
             as="blogPosting"
             author={{
@@ -93,8 +108,13 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             <SmartLink href="/blog">
               <Text variant="label-strong-m">Blog</Text>
             </SmartLink>
-            <Text marginBottom="12" onBackground="neutral-weak" variant="body-default-xs">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+            <Text
+              marginBottom="12"
+              onBackground="neutral-weak"
+              variant="body-default-xs"
+            >
+              {post.metadata.publishedAt &&
+                formatDate(post.metadata.publishedAt)}
             </Text>
             <Heading variant="display-strong-m">{post.metadata.title}</Heading>
           </Column>

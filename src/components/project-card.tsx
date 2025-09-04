@@ -10,7 +10,7 @@ import {
   Text,
 } from "@once-ui-system/core";
 
-interface ProjectCardProps {
+type ProjectCardProps = {
   href: string;
   priority?: boolean;
   images: string[];
@@ -19,7 +19,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
-}
+};
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
@@ -56,9 +56,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} reverse size="m" />}
+            {avatars?.length > 0 && (
+              <AvatarGroup avatars={avatars} reverse size="m" />
+            )}
             {description?.trim() && (
-              <Text onBackground="neutral-weak" variant="body-default-s" wrap="balance">
+              <Text
+                onBackground="neutral-weak"
+                variant="body-default-s"
+                wrap="balance"
+              >
                 {description}
               </Text>
             )}

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/performance/noBarrelFile: Architecture decision */
 export {
   baseURL,
   dataStyle,

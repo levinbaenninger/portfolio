@@ -1,9 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
-
-import { baseURL, person } from "@/resources";
 import { ImageResponse } from "next/og";
+import { baseURL, person } from "@/resources";
 
 export const runtime = "nodejs";
+
+const OK_STATUS = 200;
+const GOOGLE_FONT_SRC_REGEX =
+  /src: url\((.+)\) format\('(opentype|truetype)'\)/;
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -11,13 +13,13 @@ export async function GET(request: Request) {
   const origin = url.origin || baseURL;
 
   async function loadGoogleFont(font: string) {
-    const url = `https://fonts.googleapis.com/css2?family=${font}`;
-    const css = await (await fetch(url)).text();
-    const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
+    const fontUrl = `https://fonts.googleapis.com/css2?family=${font}`;
+    const css = await (await fetch(fontUrl)).text();
+    const resource = css.match(GOOGLE_FONT_SRC_REGEX);
 
     if (resource) {
       const response = await fetch(resource[1]);
-      if (response.status === 200) {
+      if (response.status === OK_STATUS) {
         return await response.arrayBuffer();
       }
     }
@@ -68,13 +70,13 @@ export async function GET(request: Request) {
           {/** biome-ignore lint/performance/noImgElement: This image is not used in the page */}
           <img
             alt="avatar"
-            src={origin + person.avatar}
-            width={192}
             height={192}
+            src={origin + person.avatar}
             style={{
               objectFit: "cover",
               borderRadius: "100%",
             }}
+            width={192}
           />
           <div
             style={{
@@ -118,6 +120,6 @@ export async function GET(request: Request) {
           style: "normal",
         },
       ],
-    },
+    }
   );
 }
