@@ -35,6 +35,7 @@ export function Projects({ range, exclude }: ProjectsProps) {
           }
           content={post.content}
           description={post.metadata.summary}
+          githubLink={post.metadata.githubLink || ""}
           href={`work/${post.slug}`}
           images={post.metadata.images}
           key={post.slug}

@@ -15,6 +15,7 @@ import {
   HiOutlineDocument,
   HiOutlineEye,
   HiOutlineEyeSlash,
+  HiOutlineGlobeAlt,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineLink,
   HiOutlineRocketLaunch,
@@ -67,6 +68,7 @@ export const iconLibrary: Record<string, IconType> = {
   postgres: SiPostgresql,
   angular: SiAngular,
   figma: SiFigma,
+  internet: HiOutlineGlobeAlt,
 };
 
 export type IconLibrary = typeof iconLibrary;

@@ -76,7 +76,7 @@ export default async function Project({
   return (
     <Column
       as="section"
-      gap="l"
+      gap="m"
       horizontal="center"
       marginBottom="40"
       maxWidth="m"
@@ -112,6 +112,32 @@ export default async function Project({
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
+
+      {(post.metadata.link || post.metadata.githubLink) && (
+        <Row horizontal="center" marginBottom="24">
+          <Row gap="24" wrap>
+            {post.metadata.link && (
+              <SmartLink
+                href={post.metadata.link}
+                style={{ margin: "0", width: "fit-content" }}
+                suffixIcon="internet"
+              >
+                <Text variant="body-default-s">View project</Text>
+              </SmartLink>
+            )}
+            {post.metadata.githubLink && (
+              <SmartLink
+                href={post.metadata.githubLink}
+                style={{ margin: "0", width: "fit-content" }}
+                suffixIcon="github"
+              >
+                <Text variant="body-default-s">View on GitHub</Text>
+              </SmartLink>
+            )}
+          </Row>
+        </Row>
+      )}
+
       <Row horizontal="center" marginBottom="32">
         <Row gap="16" vertical="center">
           {post.metadata.team && (
