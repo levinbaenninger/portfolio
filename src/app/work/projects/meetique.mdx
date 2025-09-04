@@ -9,21 +9,87 @@ team:
     role: "Software Engineer"
     avatar: "/images/avatar.png"
     link: "https://levinbaenninger.dev"
+  - name: "Lorin Steiner"
+    role: "Software Engineer"
+    avatar: "/images/lorin-steiner.png"
+    link: "https://www.lorin-steiner.ch/"
 link: "https://meetique.vercel.app"
 ---
 
 # Meetique
 
-Meetique is a project designed to help users meet with an agent, receive a clear summary, and stay focused during their interactions. The main goal is to streamline agent meetings and provide concise summaries for better productivity.
+Meetique is an AI-powered meeting platform I built as a personal project over two months. It allows users to schedule and conduct video meetings with custom AI agents, featuring real-time transcription and GPT-4 summaries. I created this project both as a way to support my own studying and as a cornerstone portfolio piece to showcase my ability to design and build a full-stack application from scratch.
 
-## Problem Statement
+## 📌 Overview
 
-In today's fast-paced world, meetings with agents can often be unproductive and lack clarity. Users may struggle to stay focused during these interactions, leading to missed information and inefficient communication. There is a need for a solution that can help users stay on track, receive clear summaries, and enhance their overall meeting experience.
+### 🚨 The Problem
 
-## Solution
+Meetings are often unfocused, unstructured, and difficult to summarize. As a student, I wanted a way to make online study sessions more productive by having AI-driven meeting notes and summaries while still maintaining the personal touch of real-time discussions.
 
-Meetique addresses these challenges by providing a platform that facilitates effective meetings with agents. The key features of Meetique include:
+### 💡 Solution
 
-- **Meeting Facilitation**: Meetique offers tools to help users prepare for meetings, set agendas, and stay focused during interactions with agents.
-- **Clear Summaries**: After each meeting, Meetique generates concise summaries that highlight key points and action items, ensuring users have a clear understanding of the discussion.
-- **User-Friendly Interface**: The platform is designed with a user-friendly interface that makes it easy for users to navigate and utilize its features effectively.
+I designed and developed Meetique, a platform where users can meet with custom AI agents over video calls. The platform automatically transcribes conversations and generates concise summaries powered by GPT-4, keeping meetings productive and accessible.
+
+### ⏳ The Process
+
+- **Planning**: Researched how to integrate AI into real-time applications and chose a modern web stack (Next.js, TypeScript, tRPC, Drizzle ORM, Stream Video SDK).
+- **Development**: Built the full application in about two months, focusing on real-time video, authentication, and AI integrations.
+- **Iteration**: Continuously tested and refined features, from subscription tiers to background job handling.
+
+### ⚔️ Challenges
+
+- **Learning Curve**: It was my first full-stack project, so I had to learn architectural design, type-safe APIs (tRPC), and database migrations (Drizzle ORM).
+- **AI Integration**: Designing a reliable flow for transcripts and summaries required experimenting with OpenAI’s APIs and error handling.
+- **Video Calling**: Implementing Stream Video and securing webhook integrations was challenging but taught me a lot about real-time systems.
+
+### 🎯 The Outcome
+
+- A fully functioning platform with AI-driven video meetings.
+- Personally useful for studying and note-taking.
+- Serves as a comprehensive portfolio project demonstrating my ability to build complex, production-level applications.
+
+### 🧠 Key Learnings
+
+- Deep understanding of Next.js App Router and full-stack architectures.
+- How to design type-safe APIs and manage complexity with tRPC and React Query.
+- Practical experience integrating real-time AI into web apps.
+- Confidence in handling security, subscriptions, and deployment on modern infrastructure.
+
+---
+
+## ⚙️ Technical Deep Dive
+
+### ✏️ Architecture
+
+- **Frontend**: Next.js 15, TypeScript, Tailwind, shadcn/ui, React Query, React Hook Form with Zod.
+- **Backend**: tRPC API layer, PostgreSQL (Neon) with Drizzle ORM, authentication via Better Auth, background jobs with Inngest.
+- **Integrations**: Stream Video SDK for video and transcription, OpenAI GPT-4 for summaries, Polar for payments, Resend for emails.
+- **Infrastructure**: Hosted on Vercel, monitored with Sentry, analytics via PostHog, bot protection with Arcjet.
+
+### ✨ Key Features
+
+- **Custom AI Agents** with user-defined instructions.
+- **Real-Time Video Meetings** with AI presence and transcription.
+- **Automatic Summaries** structured by GPT-4.
+- **Premium Tiers** with usage limits, subscription management, and billing.
+- **Secure Authentication** with magic links and OAuth providers.
+
+### 🛠️ Implementation Details
+
+- **Type Safety**: End-to-end type safety enforced with tRPC and Zod.
+- **AI Pipeline**: After a meeting ends, a webhook triggers background jobs that fetch the transcript, identify speakers, and send structured prompts to GPT-4 for summaries.
+- **Video Flow**: Stream Video SDK handles real-time WebRTC connections, while AI agents are upserted as Stream users for seamless participation.
+- **Security**: Middleware for auth checks, webhook signature validation, Arcjet for bot protection and rate limiting.
+- **Scalability**: Async background jobs ensure non-blocking processing for transcripts and summaries.
+
+### 🤺 Technical Challenges
+
+- Learning **tRPC** and designing a scalable API layer.
+- Handling **real-time transcription** and aligning it with AI summaries.
+- Setting up **secure and reliable webhooks** for Stream Video and AI pipelines.
+
+### 📈 Results
+
+- A production-ready application that integrates multiple modern technologies cohesively.
+- Solid understanding of **real-time systems**, **AI integration**, and **subscription management**.
+- Experience with industry-standard tooling for monitoring, analytics, and security.
