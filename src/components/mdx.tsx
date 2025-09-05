@@ -3,6 +3,7 @@
 import {
   Accordion,
   AccordionGroup,
+  BlockQuote,
   Button,
   Card,
   CodeBlock,
@@ -157,8 +158,10 @@ function createCodeBlock(props: any) {
   return <pre {...props} />;
 }
 
-function createList({ children }: { children: ReactNode }) {
-  return <List>{children}</List>;
+function createList(type: "ol" | "ul") {
+  return ({ children }: { children: ReactNode }) => {
+    return <List as={type}>{children}</List>;
+  };
 }
 
 function createListItem({ children }: { children: ReactNode }) {
@@ -171,7 +174,7 @@ function createListItem({ children }: { children: ReactNode }) {
 
 function createHR() {
   return (
-    <Row fillWidth horizontal="center">
+    <Row fillWidth horizontal="center" marginY="12">
       <Line maxWidth="40" />
     </Row>
   );
@@ -189,8 +192,8 @@ const components = {
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
-  ol: createList as any,
-  ul: createList as any,
+  ol: createList("ol") as any,
+  ul: createList("ul") as any,
   li: createListItem as any,
   hr: createHR as any,
   Heading,
@@ -209,6 +212,7 @@ const components = {
   Icon,
   Media,
   SmartLink,
+  BlockQuote,
 };
 
 type CustomMDXProps = MDXRemoteProps & {
