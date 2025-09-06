@@ -1,13 +1,5 @@
 import { Line, Row, Text } from "@once-ui-system/core";
-import type {
-  About,
-  Blog,
-  Home,
-  Newsletter,
-  Person,
-  Social,
-  Work,
-} from "@/types";
+import type { About, Blog, Home, Person, Social, Work } from "@/types";
 
 const person: Person = {
   firstName: "Levin",
@@ -18,12 +10,6 @@ const person: Person = {
   email: "me@levinbaenninger.dev",
   location: "Europe/Zurich",
   languages: ["English", "German", "French"],
-};
-
-const newsletter: Newsletter = {
-  display: false,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
 };
 
 const social: Social = [
@@ -114,8 +100,8 @@ const about: About = {
         timeframe: "2023 - Present",
         role: "Junior Software Engineer",
         achievements: [
-          "Built solid computer science foundations: web engineering, algorithms, version control, and the “why” behind the “what”",
-          "Developed our internal component library used across products — consistent UI, reusable components, faster shipping",
+          "Built solid computer science foundations: web engineering, algorithms, databases, and the “why” behind the “what”.",
+          "Developed our internal component library used across products – consistent UI, reusable components, faster shipping.",
         ],
         images: [],
       },
@@ -128,12 +114,12 @@ const about: About = {
       {
         name: "Gewerbliches Berufs- und Weiterbildungszentrum St. Gallen",
         description:
-          "I'm attending vocational school at GBS St. Gallen, learning the fundamentals of computer science. From algorithms and data structures to databases and networks—solid basics over buzzwords.",
+          "I'm attending vocational school at GBS St. Gallen, learning the fundamentals of computer science. From algorithms and data structures to databases and networks – solid basics over buzzwords.",
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
@@ -141,7 +127,7 @@ const about: About = {
         description: (
           <>
             Building modern web apps with Next.js, TypeScript, Tailwind, tRPC,
-            TanStack Query, and Postgres — plus Angular during work.
+            TanStack Query, and Postgres – plus Angular during work.
           </>
         ),
         tags: [
@@ -180,7 +166,7 @@ const about: About = {
         title: "Designing",
         description: (
           <>
-            From rough wireframes to polished flows in Figma — components,
+            From rough wireframes to polished flows in Figma – components,
             auto-layout, tokens, and prototypes that translate cleanly to code.
           </>
         ),
@@ -211,4 +197,4 @@ const work: Work = {
     "Where ideas compile into projects. Some in prod, some in progress, all with lessons learned.",
 };
 
-export { about, blog, home, newsletter, person, social, work };
+export { about, blog, home, person, social, work };

@@ -8,4 +8,4 @@ export {
   routes,
   style,
 } from "./config";
-export { about, blog, home, newsletter, person, social, work } from "./content";
+export { about, blog, home, person, social, work } from "./content";
