@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Levin",
   lastName: "Bänninger",
   name: "Levin Bänninger",
-  role: "Junior Software Engineer",
+  role: "Software Engineer Apprentice",
   avatar: "/images/avatar.webp",
   email: "me@levinbaenninger.dev",
   location: "Europe/Zurich",
@@ -98,7 +98,7 @@ const about: About = {
       {
         company: "Bühler AG",
         timeframe: "2023 - Present",
-        role: "Junior Software Engineer",
+        role: "Software Engineer Apprentice",
         achievements: [
           "Built solid computer science foundations: web engineering, algorithms, databases, and the “why” behind the “what”.",
           "Developed our internal component library used across products – consistent UI, reusable components, faster shipping.",
