@@ -1,10 +1,10 @@
 # Portfolio 🚀
 
-> Turning to-dos into ta-da — A modern portfolio showcasing my work as a Junior Software Engineer
+> Turning to-dos into ta-da — A modern portfolio showcasing my work as a Software Engineer Apprenctice
 
 ## 👨‍💻 About
 
-Hi! I'm **Levin Bänninger**, a Junior Software Engineer at Bühler AG. By day, I wrangle component libraries so teams ship faster without breaking UX. By night, I tinker on side projects for fun. This portfolio showcases my work, thoughts, and experiments.
+Hi! I'm **Levin Bänninger**, a Software Engineer Apprenctice at Bühler AG. By day, I wrangle component libraries so teams ship faster without breaking UX. By night, I tinker on side projects for fun. This portfolio showcases my work, thoughts, and experiments.
 
 **Live site:** [levinbaenninger.dev](https://www.levinbaenninger.dev)
 

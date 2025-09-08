@@ -57,8 +57,9 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Levin, a junior software engineer at Bühler, keeping our component
-      library tidy so teams move fast. Off-hours, I build my own stuff.
+      I'm Levin, a Software Engineer Apprenctice at Bühler, keeping our
+      component library tidy so teams move fast. Off-hours, I build my own
+      stuff.
     </>
   ),
 };
@@ -84,10 +85,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm Levin, a junior software engineer at Bühler. By day I wrangle our
-        component library so teams ship faster without breaking UX; by night I
-        tinker on side projects for fun. I like clean APIs, tidy repos, and code
-        that explains itself. Coffee-powered, test-approved, always learning.
+        I'm Levin, a software engineer apprentice at Bühler. By day I wrangle
+        our component library so teams ship faster without breaking UX; by night
+        I tinker on side projects for fun. I like clean APIs, tidy repos, and
+        code that explains itself. Coffee-powered, test-approved, always
+        learning.
       </>
     ),
   },
