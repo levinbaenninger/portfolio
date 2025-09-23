@@ -296,6 +296,38 @@ export default function About() {
             </>
           )}
 
+          {about.achievements.display && (
+            <>
+              <Heading
+                as="h2"
+                id={about.achievements.title}
+                marginBottom="m"
+                variant="display-strong-s"
+              >
+                {about.achievements.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.achievements.achievements.map((achievement, index) => (
+                  <Column
+                    fillWidth
+                    gap="4"
+                    key={`${achievement.title}-${index}`}
+                  >
+                    <Text id={achievement.title} variant="heading-strong-l">
+                      {achievement.title}
+                    </Text>
+                    <Text
+                      onBackground="neutral-weak"
+                      variant="heading-default-xs"
+                    >
+                      {achievement.description}
+                    </Text>
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
           {about.studies.display && (
             <>
               <Heading

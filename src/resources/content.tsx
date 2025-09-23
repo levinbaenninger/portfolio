@@ -103,9 +103,21 @@ const about: About = {
         role: "Software Engineer Apprentice",
         achievements: [
           "Built solid computer science foundations: web engineering, algorithms, databases, and the “why” behind the “what”.",
+          "Engineered custom Azure Container Jobs to optimize Azure DevOps pipelines – reduced build times, increased scalability, and lowered infrastructure overhead, accelerating delivery cycles.",
           "Developed our internal component library used across products – consistent UI, reusable components, faster shipping.",
         ],
         images: [],
+      },
+    ],
+  },
+  achievements: {
+    display: true,
+    title: "Achievements",
+    achievements: [
+      {
+        title: "SwissSkills 2025 – Web Technologies (Skill 17), Bern",
+        description:
+          "I participated in the SwissSkills 2025 Web Technologies competition (Skill 17) in Bern. The challenge included solving tasks across the full web stack: structuring and styling interfaces with HTML and CSS, building interactive features using vanilla JavaScript, and implementing backend functionality with Express.js. Through this experience, I strengthened my ability to work under time pressure, apply problem-solving strategies, and integrate both frontend and backend technologies into complete web solutions.",
       },
     ],
   },

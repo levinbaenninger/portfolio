@@ -163,6 +163,19 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+  achievements: {
+    /** Whether to display achievements section */
+    display: boolean;
+    /** Title for the achievements section */
+    title: string;
+    /** List of achievements */
+    achievements: Array<{
+      /** Achievement title */
+      title: string;
+      /** Achievement description */
+      description: React.ReactNode;
+    }>;
+  };
   /** Studies/education section */
   studies: {
     /** Whether to display studies section */
