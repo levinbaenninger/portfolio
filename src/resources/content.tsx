@@ -7,7 +7,7 @@ const person: Person = {
   name: "Levin Bänninger",
   role: "Software Engineer Apprentice",
   avatar: "/images/avatar.webp",
-  email: "me@levinbaenninger.dev",
+  email: "levin@baenninger.me",
   location: "Europe/Zurich",
   languages: ["English", "German", "French"],
 };

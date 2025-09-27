@@ -7,7 +7,7 @@ import type {
   StyleConfig,
 } from "@/types";
 
-const baseURL: string = "https://levinbaenninger.dev";
+const baseURL: string = "https://levin.baenninger.me";
 
 const routes: RoutesConfig = {
   "/": true,
