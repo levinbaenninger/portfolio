@@ -120,7 +120,12 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx delay={0.6} translateY="16">
-        <Projects range={[1, 1]} />
+        <Column fillWidth gap="24">
+          <Heading as="h2" variant="display-strong-xs" wrap="balance">
+            Recent Work
+          </Heading>
+          <Projects range={[1, 1]} />
+        </Column>
       </RevealFx>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">

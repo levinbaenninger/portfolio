@@ -41,7 +41,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Turning to dos into ta-da</>,
+  headline: <>Hi 👋 I'm Levin Bänninger</>,
   featured: {
     display: true,
     title: (
@@ -57,9 +57,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Levin, a Software Engineer Apprenctice at Bühler, keeping our
-      component library tidy so teams move fast. Off-hours, I build my own
-      stuff.
+      I'm a Software Engineer Apprenctice at Bühler, keeping our component
+      library tidy so teams move fast. Off-hours, I build my own stuff.
     </>
   ),
 };
