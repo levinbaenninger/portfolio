@@ -13,84 +13,110 @@ team:
     role: "Software Engineer"
     avatar: "/images/projects/meetique/lorin-steiner.webp"
     link: "https://www.lorin-steiner.ch/"
-link: "https://meetique.vercel.app"
+link: "https://meetique.baenninger.me"
 githubLink: "https://github.com/levinbaenninger/meetique"
 ---
 
 # Meetique
 
-Meetique is an AI-powered meeting platform I built as a personal project over two months. It allows users to schedule and conduct video meetings with custom AI agents, featuring real-time transcription and GPT-4 summaries. I created this project both as a way to support my own studying and as a cornerstone portfolio piece to showcase my ability to design and build a full-stack application from scratch.
+It started with frustration. I was in yet another online study session where half the time was spent clarifying what we’d just discussed, and the other half was lost to distractions. At the end, we all left with fuzzy memories and no clear summary of what had been decided.
 
-## 📌 Overview
+That’s when the idea for **Meetique** was born — an AI-powered meeting platform designed to help users stay focused, capture key moments automatically, and leave every meeting with a concise summary.
 
-### 🚨 The Problem
+<Column marginY="24">
+  <BlockQuote
+    author={{ name: "Levin Bänninger", avatar: "/images/avatar.webp" }}
+    link={{ href: "https://meetique.baenninger.me", label: "Visit Meetique" }}
+  >
+    Real-time video. Intelligent transcription. GPT-4 summaries. A meeting that finally remembers what you said.
+  </BlockQuote>
+</Column>
 
-Meetings are often unfocused, unstructured, and difficult to summarize. As a student, I wanted a way to make online study sessions more productive by having AI-driven meeting notes and summaries while still maintaining the personal touch of real-time discussions.
+## The Problem
 
-### 💡 Solution
+The way we meet online hasn’t evolved much. Tools like Zoom and Google Meet connect us, but they don’t help us make sense of what actually happens during the call. For students and professionals alike, that means sifting through recordings, half-written notes, and scattered action points.
 
-I designed and developed Meetique, a platform where users can meet with custom AI agents over video calls. The platform automatically transcribes conversations and generates concise summaries powered by GPT-4, keeping meetings productive and accessible.
+I wanted something different: a space where meetings are *not just recorded* — but *understood.*
 
-### ⏳ The Process
+## The Idea
 
-- **Planning**: Researched how to integrate AI into real-time applications and chose a modern web stack (Next.js, TypeScript, tRPC, Drizzle ORM, Stream Video SDK).
-- **Development**: Built the full application in about two months, focusing on real-time video, authentication, and AI integrations.
-- **Iteration**: Continuously tested and refined features, from subscription tiers to background job handling.
+Meetique lets users schedule and conduct video meetings with **custom AI agents** that transcribe discussions in real time and generate **summaries powered by GPT-4**. These summaries don’t just repeat what was said — they distill meaning, decisions, and next steps.
 
-### ⚔️ Challenges
+For me, it started as a personal productivity tool. But as I built it, it became a reflection of everything I’d learned about designing and developing modern, full-stack web applications.
 
-- **Learning Curve**: It was my first full-stack project, so I had to learn architectural design, type-safe APIs (tRPC), and database migrations (Drizzle ORM).
-- **AI Integration**: Designing a reliable flow for transcripts and summaries required experimenting with OpenAI’s APIs and error handling.
-- **Video Calling**: Implementing Stream Video and securing webhook integrations was challenging but taught me a lot about real-time systems.
+<Feedback
+  variant="success"
+  title="From Idea to Product"
+  description="Built in two months, Meetique combines AI, real-time video, and modern web architecture to deliver a seamless meeting experience."
+/>
 
-### 🎯 The Outcome
+## The Journey
 
-- A fully functioning platform with AI-driven video meetings.
-- Personally useful for studying and note-taking.
-- Serves as a comprehensive portfolio project demonstrating my ability to build complex, production-level applications.
+The development of Meetique was a lesson in full-stack design and persistence. I began by sketching out the architecture: how real-time video could coexist with AI-driven transcription, how summaries could be generated without blocking user interaction, and how to ensure the system remained responsive under load.
 
-### 🧠 Key Learnings
+Over two months, I went from early prototypes to a production-ready platform. The stack combined **Next.js 15** with **TypeScript**, **tRPC**, **Drizzle ORM**, and **Stream Video SDK**. Every part was chosen to balance type safety, performance, and developer experience.
 
-- Deep understanding of Next.js App Router and full-stack architectures.
-- How to design type-safe APIs and manage complexity with tRPC and React Query.
-- Practical experience integrating real-time AI into web apps.
-- Confidence in handling security, subscriptions, and deployment on modern infrastructure.
+What I didn’t anticipate was how much I’d learn about system design — authentication flows, secure webhook integrations, and background job orchestration with **Inngest** quickly became part of my daily vocabulary.
 
----
+<Column marginY="20" gap="16">
+  <Card border="neutral-alpha-medium" radius="l-4" fillWidth>
+    <Column paddingX="20" paddingY="24" gap="8">
+      <Text variant="body-default-xl">Early Technical Decisions</Text>
 
-## ⚙️ Technical Deep Dive
+      Building a real-time AI app meant combining technologies that weren’t originally meant to work together. I had to orchestrate multiple moving parts — from OpenAI’s GPT-4 API to Stream’s real-time SDK — while maintaining strict type safety through tRPC and Zod.
+    </Column>
+  </Card>
 
-### ✏️ Architecture
+  <Card border="neutral-alpha-medium" radius="l-4" fillWidth>
+    <Column paddingX="20" paddingY="24" gap="8">
+      <Text variant="body-default-xl">Challenges Along the Way</Text>
 
-- **Frontend**: Next.js 15, TypeScript, Tailwind, shadcn/ui, React Query, React Hook Form with Zod.
-- **Backend**: tRPC API layer, PostgreSQL (Neon) with Drizzle ORM, authentication via Better Auth, background jobs with Inngest.
-- **Integrations**: Stream Video SDK for video and transcription, OpenAI GPT-4 for summaries, Polar for payments, Resend for emails.
-- **Infrastructure**: Hosted on Vercel, monitored with Sentry, analytics via PostHog, bot protection with Arcjet.
+      Integrating AI summarization was one of the hardest parts. Transcripts had to be processed asynchronously, transformed into structured prompts, and passed through GPT-4 in a way that respected both latency and cost constraints. Each transcript was an experiment in efficiency and precision.
+    </Column>
+  </Card>
+</Column>
 
-### ✨ Key Features
+## Building for Reliability
 
-- **Custom AI Agents** with user-defined instructions.
-- **Real-Time Video Meetings** with AI presence and transcription.
-- **Automatic Summaries** structured by GPT-4.
-- **Premium Tiers** with usage limits, subscription management, and billing.
-- **Secure Authentication** with magic links and OAuth providers.
+The turning point came when I built the AI pipeline. Instead of summarizing in real time — which introduced lag — Meetique waits until the meeting ends, then triggers an **asynchronous background job** to process the transcript, identify speakers, and generate structured GPT-4 summaries.
 
-### 🛠️ Implementation Details
+This approach ensured that the frontend remained snappy while the backend handled complex workloads quietly in the background. It was my first taste of true asynchronous system design — and the satisfaction of seeing a clean summary appear minutes after a meeting ended was unforgettable.
 
-- **Type Safety**: End-to-end type safety enforced with tRPC and Zod.
-- **AI Pipeline**: After a meeting ends, a webhook triggers background jobs that fetch the transcript, identify speakers, and send structured prompts to GPT-4 for summaries.
-- **Video Flow**: Stream Video SDK handles real-time WebRTC connections, while AI agents are upserted as Stream users for seamless participation.
-- **Security**: Middleware for auth checks, webhook signature validation, Arcjet for bot protection and rate limiting.
-- **Scalability**: Async background jobs ensure non-blocking processing for transcripts and summaries.
+<Column marginY="20">
+  <BlockQuote author={{ name: "A realization from building Meetique" }}>
+    Every technical constraint hides a design opportunity. The challenge isn’t avoiding limits — it’s shaping them into strengths.
+  </BlockQuote>
+</Column>
 
-### 🤺 Technical Challenges
+## Architecture That Scales
 
-- Learning **tRPC** and designing a scalable API layer.
-- Handling **real-time transcription** and aligning it with AI summaries.
-- Setting up **secure and reliable webhooks** for Stream Video and AI pipelines.
+Meetique runs on **Vercel**, powered by a **PostgreSQL** database hosted on **Neon**. Authentication is handled by **Better Auth**, analytics via **PostHog**, and error monitoring through **Sentry**.
 
-### 📈 Results
+Bot protection and rate limiting are enforced with **Arcjet**, ensuring that the system remains secure even under load. Subscriptions and billing are managed through **Polar**, while transactional emails are delivered via **Resend**.
 
-- A production-ready application that integrates multiple modern technologies cohesively.
-- Solid understanding of **real-time systems**, **AI integration**, and **subscription management**.
-- Experience with industry-standard tooling for monitoring, analytics, and security.
+It’s a complete, modern web application — built with production standards in mind, but crafted by a single developer.
+
+## What I Learned
+
+Building Meetique taught me more than any tutorial could. I learned how to reason about **data flow in distributed systems**, how to design **type-safe APIs**, and how to integrate **AI workflows** into existing application logic.
+
+More importantly, I learned the art of iteration — how to ship, test, and refine quickly without losing focus on quality.
+
+<Feedback
+  title="Lessons Beyond Code"
+  description="Meetique wasn’t just about learning frameworks. It was about understanding how architecture, user experience, and AI can coexist meaningfully."
+/>
+
+## The Result
+
+Today, Meetique is a functional AI meeting platform that supports custom agents, secure authentication, real-time video, and automated summaries. It’s both a study companion and a personal milestone — a reminder that complex systems can be built with curiosity, patience, and persistence.
+
+<Column marginY="24">
+  <BlockQuote author={{ name: "Final Reflection" }}>
+    Meetique began as a tool for focus, but it became a framework for understanding how technology can enhance — not replace — human conversation.
+  </BlockQuote>
+</Column>
+
+## Looking Forward
+
+Long term, I envision Meetique as a collaboration platform where every conversation leads naturally to clear outcomes — not just recordings.
