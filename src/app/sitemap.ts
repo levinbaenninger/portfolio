@@ -17,7 +17,7 @@ export default function sitemap() {
   );
 
   const routes = activeRoutes.map((route) => ({
-    url: `${baseURL}${route !== "/" ? route : ""}`,
+    url: `${baseURL}${route === "/" ? "" : route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 

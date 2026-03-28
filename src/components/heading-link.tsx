@@ -6,12 +6,12 @@ import type { JSX } from "react";
 
 import styles from "@/components/heading-link.module.scss";
 
-type HeadingLinkProps = {
+interface HeadingLinkProps {
+  children: React.ReactNode;
   id: string;
   level: 1 | 2 | 3 | 4 | 5 | 6;
-  children: React.ReactNode;
   style?: React.CSSProperties;
-};
+}
 
 export const HeadingLink: React.FC<HeadingLinkProps> = ({
   id,

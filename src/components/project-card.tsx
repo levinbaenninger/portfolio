@@ -10,17 +10,17 @@ import {
   Text,
 } from "@once-ui-system/core";
 
-type ProjectCardProps = {
-  href: string;
-  priority?: boolean;
-  images: string[];
-  title: string;
+interface ProjectCardProps {
+  avatars: { src: string }[];
   content: string;
   description: string;
-  avatars: { src: string }[];
-  link: string;
   githubLink: string;
-};
+  href: string;
+  images: string[];
+  link: string;
+  priority?: boolean;
+  title: string;
+}
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,

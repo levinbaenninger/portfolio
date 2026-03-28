@@ -2,24 +2,24 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-type Team = {
-  name: string;
-  role: string;
+interface Team {
   avatar: string;
   link: string;
-};
+  name: string;
+  role: string;
+}
 
-type Metadata = {
-  title: string;
-  publishedAt: string;
-  summary: string;
+interface Metadata {
+  githubLink?: string;
   image?: string;
   images: string[];
+  link?: string;
+  publishedAt: string;
+  summary: string;
   tag?: string;
   team: Team[];
-  link?: string;
-  githubLink?: string;
-};
+  title: string;
+}
 
 import { notFound } from "next/navigation";
 

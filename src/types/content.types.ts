@@ -10,37 +10,37 @@ export type IANATimeZone = Extract<keyof typeof zones, string>; // Narrow to str
 /**
  * Represents a person featured in the portfolio.
  */
-export type Person = {
-  /** First name of the person */
-  firstName: string;
-  /** Last name of the person */
-  lastName: string;
-  /** The name you want to display, allows variations like nicknames */
-  name: string;
-  /** Role or job title */
-  role: string;
+export interface Person {
   /** Path to avatar image */
   avatar: string;
   /** Email address */
   email: string;
-  /** IANA time zone location */
-  location: IANATimeZone;
+  /** First name of the person */
+  firstName: string;
   /** Languages spoken */
   languages?: string[];
-};
+  /** Last name of the person */
+  lastName: string;
+  /** IANA time zone location */
+  location: IANATimeZone;
+  /** The name you want to display, allows variations like nicknames */
+  name: string;
+  /** Role or job title */
+  role: string;
+}
 
 /**
  * Newsletter Section
  * @description The below information will be displayed on the Home page in Newsletter block
  */
-export type Newsletter = {
+export interface Newsletter {
+  /** Description of the newsletter */
+  description: React.ReactNode;
   /** Whether to display the newsletter section */
   display: boolean;
   /** Title of the newsletter   */
   title: React.ReactNode;
-  /** Description of the newsletter */
-  description: React.ReactNode;
-};
+}
 
 /**
  * Social link configuration.
@@ -64,39 +64,39 @@ export type Social = Array<{
 /**
  * Base interface for page configuration with common properties.
  */
-export type BasePageConfig = {
+export interface BasePageConfig {
+  /** Description for SEO and metadata */
+  description: string;
+  /** OG Image should be put inside `public/images` folder */
+  image?: `/images/${string}` | string;
+  /** Label for navigation or display */
+  label: string;
   /** Path to the page
    *
    * The path should be relative to the public directory
    */
   path: `/${string}` | string;
-  /** Label for navigation or display */
-  label: string;
   /** Title of the page */
   title: string;
-  /** Description for SEO and metadata */
-  description: string;
-  /** OG Image should be put inside `public/images` folder */
-  image?: `/images/${string}` | string;
-};
+}
 
 /**
  * Home page configuration.
  */
 export interface Home extends BasePageConfig {
-  /** The image to be displayed in metadata
-   *
-   * The image needs to be put inside `/public/images/` directory
-   */
-  image: `/images/${string}` | string;
-  /** The headline of the home page */
-  headline: React.ReactNode;
   /** Featured badge, which appears above the headline */
   featured: {
     display: boolean;
     title: React.ReactNode;
     href: string;
   };
+  /** The headline of the home page */
+  headline: React.ReactNode;
+  /** The image to be displayed in metadata
+   *
+   * The image needs to be put inside `/public/images/` directory
+   */
+  image: `/images/${string}` | string;
   /** The sub text which appears below the headline */
   subline: React.ReactNode;
 }
@@ -106,12 +106,18 @@ export interface Home extends BasePageConfig {
  * @description Configuration for the About page, including sections for table of contents, avatar, calendar, introduction, work experience, studies, and technical skills.
  */
 export interface About extends BasePageConfig {
-  /** Table of contents configuration */
-  tableOfContent: {
-    /** Whether to display the table of contents */
+  achievements: {
+    /** Whether to display achievements section */
     display: boolean;
-    /** Whether to show sub-items in the table of contents */
-    subItems: boolean;
+    /** Title for the achievements section */
+    title: string;
+    /** List of achievements */
+    achievements: Array<{
+      /** Achievement title */
+      title: string;
+      /** Achievement description */
+      description: React.ReactNode;
+    }>;
   };
   /** Avatar section configuration */
   avatar: {
@@ -134,48 +140,6 @@ export interface About extends BasePageConfig {
     /** Description of the introduction section */
     description: React.ReactNode;
   };
-  /** Work experience section */
-  work: {
-    /** Whether to display work experience */
-    display: boolean;
-    /** Title for the work experience section */
-    title: string;
-    /** List of work experiences */
-    experiences: Array<{
-      /** Company name */
-      company: string;
-      /** Timeframe of employment */
-      timeframe: string;
-      /** Role or job title */
-      role: string;
-      /** Achievements at the company */
-      achievements: React.ReactNode[];
-      /** Images related to the experience */
-      images?: Array<{
-        /** Image source path */
-        src: string;
-        /** Image alt text */
-        alt: string;
-        /** Image width ratio */
-        width: number;
-        /** Image height ratio */
-        height: number;
-      }>;
-    }>;
-  };
-  achievements: {
-    /** Whether to display achievements section */
-    display: boolean;
-    /** Title for the achievements section */
-    title: string;
-    /** List of achievements */
-    achievements: Array<{
-      /** Achievement title */
-      title: string;
-      /** Achievement description */
-      description: React.ReactNode;
-    }>;
-  };
   /** Studies/education section */
   studies: {
     /** Whether to display studies section */
@@ -189,6 +153,13 @@ export interface About extends BasePageConfig {
       /** Description of studies */
       description: React.ReactNode;
     }>;
+  };
+  /** Table of contents configuration */
+  tableOfContent: {
+    /** Whether to display the table of contents */
+    display: boolean;
+    /** Whether to show sub-items in the table of contents */
+    subItems: boolean;
   };
   /** Technical skills section */
   technical: {
@@ -208,6 +179,35 @@ export interface About extends BasePageConfig {
         icon?: string;
       }>;
       /** Images related to the skill */
+      images?: Array<{
+        /** Image source path */
+        src: string;
+        /** Image alt text */
+        alt: string;
+        /** Image width ratio */
+        width: number;
+        /** Image height ratio */
+        height: number;
+      }>;
+    }>;
+  };
+  /** Work experience section */
+  work: {
+    /** Whether to display work experience */
+    display: boolean;
+    /** Title for the work experience section */
+    title: string;
+    /** List of work experiences */
+    experiences: Array<{
+      /** Company name */
+      company: string;
+      /** Timeframe of employment */
+      timeframe: string;
+      /** Role or job title */
+      role: string;
+      /** Achievements at the company */
+      achievements: React.ReactNode[];
+      /** Images related to the experience */
       images?: Array<{
         /** Image source path */
         src: string;

@@ -4,12 +4,12 @@ import { Avatar, Card, Column, Media, Row, Text } from "@once-ui-system/core";
 import { person } from "@/resources";
 import { formatDate } from "@/utils/format-date";
 
-type PostProps = {
+interface PostProps {
+  direction?: "row" | "column";
   // biome-ignore lint/suspicious/noExplicitAny: No type defined for post
   post: any;
   thumbnail: boolean;
-  direction?: "row" | "column";
-};
+}
 
 export default function Post({ post, thumbnail, direction }: PostProps) {
   return (
