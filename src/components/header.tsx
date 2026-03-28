@@ -8,10 +8,10 @@ import { about, blog, display, person, routes, work } from "@/resources";
 import styles from "./header.module.scss";
 import { ThemeToggle } from "./theme-toggle";
 
-type TimeDisplayProps = {
-  timeZone: string;
+interface TimeDisplayProps {
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
-};
+  timeZone: string;
+}
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({
   timeZone,
@@ -35,7 +35,6 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({
 
     updateTime();
 
-    // biome-ignore lint/style/noMagicNumbers: Time interval
     const intervalId = setInterval(updateTime, 1000);
 
     return () => clearInterval(intervalId);

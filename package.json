@@ -11,31 +11,31 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
-    "@next/mdx": "^15.5.7",
-    "@once-ui-system/core": "^1.5.5",
+    "@next/mdx": "^15.5.14",
+    "@once-ui-system/core": "^1.6.4",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
     "classnames": "^2.5.1",
     "cookie": "^1.1.1",
     "gray-matter": "^4.0.3",
-    "next": "^15.5.7",
-    "next-mdx-remote": "^5.0.0",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
-    "react-icons": "^5.5.0",
-    "sass": "^1.94.2"
+    "next": "^15.5.14",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.6.0",
+    "sass": "^1.98.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.8",
+    "@biomejs/biome": "^2.4.9",
     "@types/cookie": "^0.6.0",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.4.0",
     "typescript": "^5.9.3",
-    "tzdata": "^1.0.46",
-    "ultracite": "^5.6.4"
+    "tzdata": "^1.0.48",
+    "ultracite": "^7.3.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [

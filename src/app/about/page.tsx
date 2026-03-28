@@ -218,10 +218,10 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
+                {about.work.experiences.map((experience) => (
                   <Column
                     fillWidth
-                    key={`${experience.company}-${experience.role}-${index}`}
+                    key={`${experience.company}-${experience.role}-${experience.timeframe}`}
                   >
                     <Row
                       fillWidth
@@ -248,13 +248,10 @@ export default function About() {
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map(
-                        (
-                          achievement: React.ReactNode,
-                          achievementIndex: number
-                        ) => (
+                        (achievement: React.ReactNode) => (
                           <Text
                             as="li"
-                            key={`${experience.company}-${achievementIndex}`}
+                            key={`${experience.company}-${experience.role}`}
                             variant="body-default-m"
                           >
                             {achievement}
@@ -307,12 +304,8 @@ export default function About() {
                 {about.achievements.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.achievements.achievements.map((achievement, index) => (
-                  <Column
-                    fillWidth
-                    gap="4"
-                    key={`${achievement.title}-${index}`}
-                  >
+                {about.achievements.achievements.map((achievement) => (
+                  <Column fillWidth gap="4" key={`${achievement.title}`}>
                     <Text id={achievement.title} variant="heading-strong-l">
                       {achievement.title}
                     </Text>
@@ -339,12 +332,8 @@ export default function About() {
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column
-                    fillWidth
-                    gap="4"
-                    key={`${institution.name}-${index}`}
-                  >
+                {about.studies.institutions.map((institution) => (
+                  <Column fillWidth gap="4" key={`${institution.name}`}>
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
@@ -382,9 +371,9 @@ export default function About() {
                     </Text>
                     {skill.tags && skill.tags.length > 0 && (
                       <Row gap="8" paddingTop="8" wrap>
-                        {skill.tags.map((tag, tagIndex) => (
+                        {skill.tags.map((tag) => (
                           <Tag
-                            key={`${skill.title}-${tagIndex}`}
+                            key={`${skill.title}-${tag.name}`}
                             prefixIcon={tag.icon}
                             size="l"
                           >
@@ -395,12 +384,11 @@ export default function About() {
                     )}
                     {skill.images && skill.images.length > 0 && (
                       <Row fillWidth gap="12" paddingTop="m" wrap>
-                        {skill.images.map((image, imageIndex) => (
+                        {skill.images.map((image) => (
                           <Row
                             border="neutral-medium"
                             height={image.height}
-                            // biome-ignore lint/suspicious/noArrayIndexKey: No ID for images
-                            key={imageIndex}
+                            key={image.src}
                             minWidth={image.width}
                             radius="m"
                           >

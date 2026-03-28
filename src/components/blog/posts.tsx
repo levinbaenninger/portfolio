@@ -2,13 +2,13 @@ import { Grid } from "@once-ui-system/core";
 import { getPosts } from "@/utils/utils";
 import Post from "./post";
 
-type PostsProps = {
-  range?: [number] | [number, number];
+interface PostsProps {
   columns?: "1" | "2" | "3";
-  thumbnail?: boolean;
   direction?: "row" | "column";
   exclude?: string[];
-};
+  range?: [number] | [number, number];
+  thumbnail?: boolean;
+}
 
 export function Posts({
   range,

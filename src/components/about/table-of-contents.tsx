@@ -4,19 +4,19 @@ import { Column, Flex, Text } from "@once-ui-system/core";
 import type React from "react";
 import styles from "./about.module.scss";
 
-type TableOfContentsProps = {
-  structure: {
-    title: string;
-    display: boolean;
-    items: string[];
-  }[];
+interface TableOfContentsProps {
   about: {
     tableOfContent: {
       display: boolean;
       subItems: boolean;
     };
   };
-};
+  structure: {
+    title: string;
+    display: boolean;
+    items: string[];
+  }[];
+}
 
 const SECTION_OFFSET = 80;
 

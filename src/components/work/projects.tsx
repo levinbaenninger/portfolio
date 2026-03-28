@@ -2,10 +2,10 @@ import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 import { getPosts } from "@/utils/utils";
 
-type ProjectsProps = {
-  range?: [number, number?];
+interface ProjectsProps {
   exclude?: string[];
-};
+  range?: [number, number?];
+}
 
 export function Projects({ range, exclude }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);

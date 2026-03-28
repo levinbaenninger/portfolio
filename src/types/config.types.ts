@@ -16,11 +16,11 @@ import type { NextFontWithVariable } from "next/dist/compiled/@next/font";
 /**
  * Display configuration for UI elements.
  */
-export type DisplayConfig = {
+export interface DisplayConfig {
   location: boolean;
-  time: boolean;
   themeSwitcher: boolean;
-};
+  time: boolean;
+}
 
 /**
  * Route configuration for enabled/disabled routes.
@@ -35,55 +35,55 @@ export type ProtectedRoutesConfig = Record<`/${string}`, boolean>;
 /**
  * Font configuration for each variant.
  */
-export type FontsConfig = {
-  heading: NextFontWithVariable;
+export interface FontsConfig {
   body: NextFontWithVariable;
-  label: NextFontWithVariable;
   code: NextFontWithVariable;
-};
+  heading: NextFontWithVariable;
+  label: NextFontWithVariable;
+}
 
 /**
  * Style customization for main layout.
  */
-export type StyleConfig = {
-  theme: Theme;
-  neutral: NeutralColor;
-  brand: Schemes;
+export interface StyleConfig {
   accent: Schemes;
+  border: BorderStyle;
+  brand: Schemes;
+  neutral: NeutralColor;
+  scaling: ScalingSize;
   solid: SolidType;
   solidStyle: SolidStyle;
-  border: BorderStyle;
   surface: SurfaceStyle;
+  theme: Theme;
   transition: TransitionStyle;
-  scaling: ScalingSize;
-};
+}
 
 /**
  * Data style configuration for charts.
  */
-export type DataStyleConfig = {
-  variant: ChartVariant;
-  mode: ChartMode;
-  height: number;
+export interface DataStyleConfig {
   axis: {
     stroke: string;
   };
+  height: number;
+  mode: ChartMode;
   tick: {
     fill: string;
     fontSize: number;
     line: boolean;
   };
-};
+  variant: ChartVariant;
+}
 
 /**
  * Effects configuration for UI visuals.
  */
-export type EffectsConfig = {
-  mask: {
-    cursor: boolean;
-    x: number;
-    y: number;
-    radius: number;
+export interface EffectsConfig {
+  dots: {
+    display: boolean;
+    opacity: number;
+    size: string;
+    color: string;
   };
   gradient: {
     display: boolean;
@@ -95,12 +95,6 @@ export type EffectsConfig = {
     tilt: number;
     colorStart: string;
     colorEnd: string;
-  };
-  dots: {
-    display: boolean;
-    opacity: number;
-    size: string;
-    color: string;
   };
   grid: {
     display: boolean;
@@ -117,49 +111,55 @@ export type EffectsConfig = {
     thickness: number;
     angle: number;
   };
-};
+  mask: {
+    cursor: boolean;
+    x: number;
+    y: number;
+    radius: number;
+  };
+}
 
 /**
  * Mailchimp configuration for newsletter forms.
  */
-export type MailchimpConfig = {
+export interface MailchimpConfig {
   action: string;
   effects: EffectsConfig;
-};
+}
 
 /**
  * Schema data for SEO/meta tags.
  */
-export type SchemaConfig = {
-  logo: string;
-  type: string;
-  name: string;
+export interface SchemaConfig {
   description: string;
   email: string;
-};
+  logo: string;
+  name: string;
+  type: string;
+}
 
 /**
  * Social links for organization.
  */
-export type SameAsConfig = {
-  threads: string;
-  linkedin: string;
+export interface SameAsConfig {
   discord: string;
-};
+  linkedin: string;
+  threads: string;
+}
 
 /**
  * Top-level config types for once-ui.config.js
  */
-export type OnceUIConfig = {
-  display: DisplayConfig;
-  mailchimp: MailchimpConfig;
-  routes: RoutesConfig;
-  protectedRoutes: ProtectedRoutesConfig;
+export interface OnceUIConfig {
   baseURL: string;
-  fonts: FontsConfig;
-  style: StyleConfig;
-  schema: SchemaConfig;
-  sameAs: SameAsConfig;
-  effects: EffectsConfig;
   dataStyle: DataStyleConfig;
-};
+  display: DisplayConfig;
+  effects: EffectsConfig;
+  fonts: FontsConfig;
+  mailchimp: MailchimpConfig;
+  protectedRoutes: ProtectedRoutesConfig;
+  routes: RoutesConfig;
+  sameAs: SameAsConfig;
+  schema: SchemaConfig;
+  style: StyleConfig;
+}
